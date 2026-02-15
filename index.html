@@ -3,863 +3,1306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AEMI GMAO | ExplorIA × Forrest Groupe</title>
-  <meta name="description" content="AEMI - Gestion de Maintenance Assistee par Ordinateur. Developpe par ExplorIA pour Forrest Groupe.">
+  <title>AEMI GMAO | Guide Complet</title>
+  <meta name="description" content="Guide complet de l'application AEMI GMAO - ExplorIA pour Forrest Groupe">
   <link rel="icon" href="https://aemi-gmao.vercel.app/icon-192.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            display: ['Space Grotesk', 'Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            neo: { yellow: '#FFE600', pink: '#FF6B9D', blue: '#0066FF', green: '#00D68F', orange: '#FF8A00', purple: '#8B5CF6', dark: '#0f0f1a', cream: '#FFFDF5' }
-          },
-        }
-      }
+      theme: { extend: {
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'], display: ['Space Grotesk','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+        colors: { neo: { yellow: '#FFE600', pink: '#FF6B9D', blue: '#0066FF', green: '#00D68F', orange: '#FF8A00', purple: '#8B5CF6', dark: '#0f0f1a', cream: '#FFFDF5' } }
+      }}
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    /* Progress bar */
-    #progress { position: fixed; top: 0; left: 0; height: 4px; z-index: 9999; background: linear-gradient(90deg, #FFE600, #FF6B9D, #0066FF, #00D68F); transition: width 0.1s; width: 0%; }
-
-    /* Neobrutalist utilities */
-    .neo-border { border: 3px solid #1a1a2e; }
-    .dark .neo-border { border-color: #334155; }
-    .neo-shadow { box-shadow: 5px 5px 0 #1a1a2e; }
-    .dark .neo-shadow { box-shadow: 5px 5px 0 #1e293b; }
-    .neo-shadow-sm { box-shadow: 3px 3px 0 #1a1a2e; }
-    .dark .neo-shadow-sm { box-shadow: 3px 3px 0 #1e293b; }
-    .neo-shadow-lg { box-shadow: 8px 8px 0 #1a1a2e; }
-    .dark .neo-shadow-lg { box-shadow: 8px 8px 0 #1e293b; }
-    .neo-shadow-yellow { box-shadow: 5px 5px 0 #FFE600; }
-    .neo-shadow-blue { box-shadow: 5px 5px 0 #0066FF; }
-    .neo-shadow-pink { box-shadow: 5px 5px 0 #FF6B9D; }
-
-    /* Button press effect */
-    .neo-btn { transition: all 0.12s ease; }
-    .neo-btn:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 #1a1a2e; }
-    .neo-btn:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 #1a1a2e; }
-    .dark .neo-btn:hover { box-shadow: 3px 3px 0 #1e293b; }
-    .dark .neo-btn:active { box-shadow: 1px 1px 0 #1e293b; }
-
-    /* Card lift effect */
-    .neo-card { transition: all 0.2s ease; }
-    .neo-card:hover { transform: translate(-2px, -3px); box-shadow: 7px 8px 0 #1a1a2e; }
-    .dark .neo-card:hover { box-shadow: 7px 8px 0 #1e293b; }
-
-    /* Reveal animations */
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
-    .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-scale.visible { opacity: 1; transform: scale(1); }
-
-    /* Stagger children */
-    .stagger > * { opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-    .stagger.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(2) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(7) { transition-delay: 480ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(8) { transition-delay: 560ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(9) { transition-delay: 640ms; opacity: 1; transform: translateY(0); }
-    .stagger.visible > *:nth-child(10) { transition-delay: 720ms; opacity: 1; transform: translateY(0); }
-
-    /* Floating animation */
-    @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
-    @keyframes float-slow { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-1.5deg); } }
-    @keyframes pulse-border { 0%, 100% { border-color: #FFE600; } 33% { border-color: #FF6B9D; } 66% { border-color: #0066FF; } }
-    @keyframes gradient-x { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes typewriter { from { width: 0; } to { width: 100%; } }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-    .float { animation: float 6s ease-in-out infinite; }
-    .float-slow { animation: float-slow 8s ease-in-out infinite; }
-    .float-delay { animation: float 6s ease-in-out infinite; animation-delay: -3s; }
-    .pulse-border { animation: pulse-border 4s ease-in-out infinite; }
-    .gradient-x { background-size: 200% 200%; animation: gradient-x 3s ease infinite; }
-    .spin-slow { animation: spin-slow 20s linear infinite; }
-
-    /* Dot grid background */
-    .dot-grid { background-image: radial-gradient(circle, #1a1a2e 1px, transparent 1px); background-size: 24px 24px; }
-    .dark .dot-grid { background-image: radial-gradient(circle, #334155 1px, transparent 1px); }
-
-    /* Magnetic button */
-    .magnetic { transition: transform 0.2s ease; }
-
-    /* Text scramble cursor */
-    .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #FFE600; }
-
-    /* Counter */
-    .counter { font-variant-numeric: tabular-nums; }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #FFFDF5; }
-    ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 4px; }
-    .dark ::-webkit-scrollbar-track { background: #0f0f1a; }
-    .dark ::-webkit-scrollbar-thumb { background: #334155; }
-
-    /* Tooltip */
-    .tooltip { position: relative; }
-    .tooltip::after { content: attr(data-tip); position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%) scale(0.8); opacity: 0; background: #1a1a2e; color: #FFE600; padding: 4px 10px; font-size: 12px; font-family: 'JetBrains Mono', monospace; white-space: nowrap; pointer-events: none; transition: all 0.2s ease; border: 2px solid #1a1a2e; }
-    .tooltip:hover::after { opacity: 1; transform: translateX(-50%) scale(1); }
-
-    /* Confetti */
-    .confetti { position: fixed; pointer-events: none; z-index: 99999; }
-
-    /* Section divider */
-    .section-divider { height: 4px; background: repeating-linear-gradient(90deg, #FFE600 0, #FFE600 20px, #FF6B9D 20px, #FF6B9D 40px, #0066FF 40px, #0066FF 60px, #00D68F 60px, #00D68F 80px); }
+    *{margin:0;padding:0;box-sizing:border-box}
+    #progress{position:fixed;top:0;left:0;height:4px;z-index:9999;background:linear-gradient(90deg,#FFE600,#FF6B9D,#0066FF,#00D68F);transition:width .1s;width:0%}
+    .nb{border:3px solid #1a1a2e}.dark .nb{border-color:#334155}
+    .ns{box-shadow:5px 5px 0 #1a1a2e}.dark .ns{box-shadow:5px 5px 0 #1e293b}
+    .ns-sm{box-shadow:3px 3px 0 #1a1a2e}.dark .ns-sm{box-shadow:3px 3px 0 #1e293b}
+    .neo-btn{transition:all .12s ease}.neo-btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 #1a1a2e}.neo-btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 #1a1a2e}
+    .dark .neo-btn:hover{box-shadow:3px 3px 0 #1e293b}
+    .reveal{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.16,1,.3,1)}.reveal.v{opacity:1;transform:translateY(0)}
+    .sn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:14px;flex-shrink:0;border:3px solid #1a1a2e}
+    .dark .sn{border-color:#334155}
+    .s-block{padding:2.5rem 0;border-bottom:1px solid #e5e7eb}.dark .s-block{border-bottom-color:#1e293b}
+    .ch{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.5rem 1.25rem;display:inline-block;border:3px solid #1a1a2e}
+    .dark .ch{border-color:#334155}
+    .info-box{background:#FFFDE7;border:3px solid #1a1a2e;padding:1rem 1.25rem;box-shadow:3px 3px 0 #FFE600}
+    .dark .info-box{background:#1e293b;border-color:#334155;box-shadow:3px 3px 0 #334155}
+    .cred-box{background:#f0f9ff;border:3px solid #1a1a2e;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.85rem}
+    .dark .cred-box{background:#1e293b;border-color:#334155}
+    .tag{font-family:'JetBrains Mono',monospace;font-size:0.7rem;padding:2px 8px;border:2px solid #1a1a2e;display:inline-block}
+    .dark .tag{border-color:#334155}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#FFFDF5}::-webkit-scrollbar-thumb{background:#1a1a2e;border-radius:4px}
+    .dark ::-webkit-scrollbar-track{background:#0f0f1a}.dark ::-webkit-scrollbar-thumb{background:#334155}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .float{animation:float 6s ease-in-out infinite}
+    .confetti{position:fixed;pointer-events:none;z-index:99999}
+    .section-divider{height:4px;background:repeating-linear-gradient(90deg,#FFE600 0,#FFE600 20px,#FF6B9D 20px,#FF6B9D 40px,#0066FF 40px,#0066FF 60px,#00D68F 60px,#00D68F 80px)}
   </style>
 </head>
 <body class="bg-neo-cream dark:bg-neo-dark text-gray-900 dark:text-gray-100 font-sans overflow-x-hidden">
+<div id="progress"></div>
 
-  <!-- Progress Bar -->
-  <div id="progress"></div>
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+  <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group" id="logo-link">
+      <div class="w-9 h-9 bg-neo-yellow nb flex items-center justify-center font-display font-black text-sm transition-transform group-hover:rotate-12">A</div>
+      <span class="font-display font-bold text-lg tracking-tight">ExplorIA <span class="text-neo-pink">&times;</span> Forrest Groupe</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <button onclick="toggleDark()" class="w-10 h-10 nb ns-sm neo-btn bg-white dark:bg-gray-800 flex items-center justify-center" aria-label="Theme">
+        <span class="dark:hidden">&#9790;</span><span class="hidden dark:inline">&#9788;</span>
+      </button>
+      <a href="https://aemi-gmao.vercel.app" target="_blank" class="hidden sm:flex bg-neo-yellow nb ns neo-btn px-5 py-2.5 font-display font-bold text-sm text-black">Ouvrir l'App &rarr;</a>
+    </div>
+  </div>
+</nav>
 
-  <!-- ==================== NAVBAR ==================== -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2 group" id="logo-link">
-        <div class="w-9 h-9 bg-neo-yellow neo-border flex items-center justify-center font-display font-black text-sm transition-transform group-hover:rotate-12">A</div>
-        <span class="font-display font-bold text-lg tracking-tight">
-          <span class="text-gray-900 dark:text-white">ExplorIA</span>
-          <span class="text-neo-pink mx-1">&times;</span>
-          <span class="text-gray-900 dark:text-white">Forrest Groupe</span>
-        </span>
-      </a>
-      <div class="flex items-center gap-3">
-        <button onclick="toggleDark()" class="w-10 h-10 neo-border neo-shadow-sm neo-btn bg-white dark:bg-gray-800 flex items-center justify-center" aria-label="Theme">
-          <span class="dark:hidden text-lg">&#9790;</span>
-          <span class="hidden dark:inline text-lg">&#9788;</span>
-        </button>
-        <a href="https://aemi-gmao.vercel.app" target="_blank" class="hidden sm:flex items-center gap-2 bg-neo-yellow neo-border neo-shadow neo-btn px-5 py-2.5 font-display font-bold text-sm text-black">
-          Ouvrir l'App <span>&rarr;</span>
-        </a>
+<!-- HERO -->
+<header class="pt-28 pb-20 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal"><span class="ch bg-neo-yellow text-black">GUIDE COMPLET DE L'APPLICATION</span></div>
+    <h1 class="reveal font-display font-black text-5xl sm:text-6xl md:text-7xl leading-[0.9] mt-8 mb-6">AEMI<br><span class="text-neo-blue">GMAO</span></h1>
+    <p class="reveal text-xl text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed mb-10">
+      Bonjour Clement. Ce document vous presente, section par section, tout ce que contient l'application AEMI que nous avons construite pour vous.
+    </p>
+    <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://aemi-gmao.vercel.app" target="_blank" class="bg-neo-yellow nb ns neo-btn px-8 py-4 font-display font-bold text-black">Ouvrir l'application &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- CONTENT -->
+<!-- ============================================================ -->
+<main class="max-w-3xl mx-auto px-6">
+
+<!-- ===== CHAPITRE : BIENVENUE ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-yellow text-black">BIENVENUE</span></div>
+
+<!-- 01 -->
+<div class="s-block reveal" id="s1">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">01</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Bonjour Clement</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Nous sommes ravis de vous presenter la premiere version de l'application AEMI GMAO. Cette application a ete construite sur mesure par ExplorIA pour les besoins de Forrest Groupe au Katanga. Tout ce que vous allez voir ici est fonctionnel et pret a etre teste.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 02 -->
+<div class="s-block reveal" id="s2">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">02</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Ce que vous allez decouvrir</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Ce guide vous accompagne a travers chaque ecran de l'application. Nous allons commencer par l'installation, puis la connexion, puis nous visiterons chaque module un par un. A la fin, vous saurez exactement comment tout fonctionne et vous pourrez nous faire un retour precis.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 03 -->
+<div class="s-block reveal" id="s3">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">03</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">L'objectif de cette version</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Cette version 1.0 a un seul objectif : que vous puissiez tester, explorer et nous dire ce qui fonctionne bien et ce qui doit etre ameliore. Votre retour est essentiel. Chaque remarque, meme petite, nous permettra d'ajuster l'application a vos besoins reels.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 04 -->
+<div class="s-block reveal" id="s4">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-white">04</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Comment lire ce guide</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque section est numerotee et suit l'ordre naturel de l'application. Vous pouvez tout lire d'un coup ou y revenir section par section. Les encadres jaunes contiennent des informations importantes. Les blocs bleus montrent les identifiants et donnees.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : INSTALLATION ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-blue text-white">INSTALLATION</span></div>
+
+<!-- 05 -->
+<div class="s-block reveal" id="s5">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">05</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">L'adresse de l'application</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">L'application est accessible depuis n'importe quel navigateur, sur telephone ou ordinateur, a l'adresse suivante :</p>
+      <div class="cred-box"><a href="https://aemi-gmao.vercel.app" target="_blank" class="text-neo-blue font-bold">https://aemi-gmao.vercel.app</a></div>
+      <p class="text-gray-500 dark:text-gray-500 text-sm mt-3">Il suffit de taper cette adresse dans Chrome, Safari, Firefox ou Edge. L'application se charge en quelques secondes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 06 -->
+<div class="s-block reveal" id="s6">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">06</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Installer sur Android</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">L'application est une PWA (Progressive Web App). Sur Android, ouvrez le lien dans Chrome, puis appuyez sur les trois points en haut a droite et selectionnez <strong>"Installer l'application"</strong> ou <strong>"Ajouter a l'ecran d'accueil"</strong>. Une icone AEMI apparaitra sur votre ecran d'accueil, comme une application native.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 07 -->
+<div class="s-block reveal" id="s7">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">07</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Installer sur iPhone ou iPad</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Sur iOS, ouvrez le lien dans Safari (pas Chrome). Appuyez sur le bouton de partage (le carre avec la fleche vers le haut) en bas de l'ecran, puis faites defiler et appuyez sur <strong>"Sur l'ecran d'accueil"</strong>. L'application se lancera ensuite en plein ecran, sans barre d'adresse.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 08 -->
+<div class="s-block reveal" id="s8">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">08</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Sur ordinateur</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Sur un ordinateur, vous pouvez simplement utiliser l'application dans votre navigateur. Chrome propose aussi l'installation en cliquant sur la petite icone dans la barre d'adresse. Sinon, ajoutez le lien a vos favoris pour y acceder rapidement.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 09 -->
+<div class="s-block reveal" id="s9">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">09</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Mises a jour automatiques</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Vous n'avez rien a faire pour mettre a jour l'application. A chaque fois que nous publions une amelioration, elle est disponible immediatement. Il suffit de recharger la page ou de fermer et rouvrir l'application.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : CONNEXION ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-green text-black">CONNEXION</span></div>
+
+<!-- 10 -->
+<div class="s-block reveal" id="s10">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">10</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La page de connexion</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Quand vous ouvrez l'application pour la premiere fois, vous arrivez sur la page de connexion. Elle affiche le logo AEMI et deux champs : un pour l'adresse email et un pour le mot de passe. En dessous, un bouton "Se connecter".</p>
+    </div>
+  </div>
+</div>
+
+<!-- 11 -->
+<div class="s-block reveal" id="s11">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">11</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le compte Administrateur</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Pour tester l'application avec un acces complet a tous les modules, utilisez ce compte :</p>
+      <div class="cred-box space-y-1">
+        <div><span class="text-gray-500 text-xs">Email :</span> <strong>admin@aemi.cd</strong></div>
+        <div><span class="text-gray-500 text-xs">Mot de passe :</span> <strong>aemi2026</strong></div>
+        <div><span class="text-gray-500 text-xs">Nom :</span> Clement Kabongo</div>
+      </div>
+      <p class="text-gray-500 text-sm mt-2">Ce compte donne acces au dashboard, aux interventions, aux clients, aux equipements, a la facturation, et a tous les autres modules.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 12 -->
+<div class="s-block reveal" id="s12">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">12</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le compte Technicien</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Pour voir l'application du point de vue d'un technicien terrain, utilisez :</p>
+      <div class="cred-box space-y-1">
+        <div><span class="text-gray-500 text-xs">Email :</span> <strong>tech1@aemi.cd</strong></div>
+        <div><span class="text-gray-500 text-xs">Mot de passe :</span> <strong>aemi2026</strong></div>
+        <div><span class="text-gray-500 text-xs">Nom :</span> Patrick Ilunga</div>
+      </div>
+      <p class="text-gray-500 text-sm mt-2">Ce compte affiche une vue mobile optimisee, avec uniquement les interventions assignees au technicien.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 13 -->
+<div class="s-block reveal" id="s13">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">13</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La difference entre les deux comptes</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le compte <strong>admin</strong> voit tout : le dashboard complet, tous les modules, toutes les donnees. C'est le compte de gestion. Le compte <strong>technicien</strong> voit uniquement ses propres interventions dans une vue mobile simplifiee, conçue pour etre utilisee sur le terrain avec un telephone. Nous vous conseillons de tester les deux.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 14 -->
+<div class="s-block reveal" id="s14">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">14</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Se deconnecter</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Pour changer de compte, cliquez sur votre nom ou avatar en haut a droite de l'ecran, puis selectionnez "Deconnexion". Vous serez redirige vers la page de connexion ou vous pourrez entrer les identifiants de l'autre compte.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : NAVIGATION ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-orange text-black">NAVIGATION DANS L'APPLICATION</span></div>
+
+<!-- 15 -->
+<div class="s-block reveal" id="s15">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">15</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le menu de navigation</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Sur le cote gauche de l'ecran, vous trouverez le menu principal. Il liste tous les modules de l'application avec une icone et un nom pour chacun. Cliquez sur n'importe quel element pour acceder au module correspondant. Le module actuellement actif est mis en surbrillance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 16 -->
+<div class="s-block reveal" id="s16">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">16</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les modules dans le menu</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Voici la liste complete des elements du menu, dans l'ordre :</p>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <div class="tag bg-neo-yellow/10">Dashboard</div>
+        <div class="tag bg-neo-blue/10">Interventions</div>
+        <div class="tag bg-neo-green/10">Clients</div>
+        <div class="tag bg-neo-orange/10">Equipements</div>
+        <div class="tag bg-neo-purple/10">Planning</div>
+        <div class="tag bg-neo-pink/10">Carte</div>
+        <div class="tag bg-neo-yellow/10">Facturation</div>
+        <div class="tag bg-neo-blue/10">Atelier</div>
+        <div class="tag bg-neo-green/10">Inventaire</div>
+        <div class="tag bg-neo-orange/10">Logistique</div>
+        <div class="tag bg-neo-purple/10">Charroi</div>
+        <div class="tag bg-neo-pink/10">Reporting</div>
       </div>
     </div>
-  </nav>
+  </div>
+</div>
 
-  <!-- ==================== HERO ==================== -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden dot-grid">
-    <!-- Floating shapes -->
-    <div class="absolute top-20 left-[10%] w-20 h-20 bg-neo-yellow neo-border neo-shadow rotate-12 float opacity-60 pointer-events-none"></div>
-    <div class="absolute top-40 right-[15%] w-16 h-16 bg-neo-pink neo-border neo-shadow-sm rounded-full float-delay opacity-50 pointer-events-none"></div>
-    <div class="absolute bottom-32 left-[20%] w-14 h-14 bg-neo-blue neo-border neo-shadow float-slow opacity-40 pointer-events-none" style="border-radius: 30% 70% 70% 30%;"></div>
-    <div class="absolute bottom-20 right-[10%] w-24 h-24 neo-border opacity-20 spin-slow pointer-events-none" style="border-width: 3px; border-style: dashed;"></div>
-    <div class="absolute top-[60%] right-[35%] w-10 h-10 bg-neo-green neo-border rotate-45 float opacity-30 pointer-events-none"></div>
+<!-- 17 -->
+<div class="s-block reveal" id="s17">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">17</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Sur mobile, le menu se replie</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Sur un telephone, le menu est cache par defaut pour laisser plus de place au contenu. Appuyez sur l'icone "hamburger" (les trois traits horizontaux) en haut a gauche pour l'ouvrir. Appuyez sur un module pour y acceder, le menu se referme automatiquement.</p>
+    </div>
+  </div>
+</div>
 
-    <div class="relative text-center px-6 py-32 max-w-5xl mx-auto">
-      <div class="reveal">
-        <div class="inline-block bg-black dark:bg-white text-neo-yellow dark:text-neo-dark font-mono font-bold text-xs px-4 py-2 neo-border neo-shadow-sm mb-8 tracking-widest">
-          GMAO &mdash; VERSION 1.0 &mdash; FEVRIER 2026
-        </div>
-      </div>
+<!-- 18 -->
+<div class="s-block reveal" id="s18">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">18</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le mode sombre</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">L'application supporte un mode sombre pour un confort visuel en conditions de faible luminosite. Vous trouverez un bouton pour basculer entre le mode clair et le mode sombre dans les parametres ou dans le coin superieur de l'ecran. L'application retient votre preference.</p>
+    </div>
+  </div>
+</div>
 
-      <h1 class="reveal font-display font-black text-7xl sm:text-8xl md:text-[10rem] leading-[0.85] tracking-tighter mb-8">
-        <span class="block">AE<span class="text-neo-yellow" id="hero-m">M</span>I</span>
-      </h1>
+<!-- 19 -->
+<div class="s-block reveal" id="s19">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">19</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le lien ExplorIA</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Dans le menu de navigation, vous remarquerez egalement un lien vers le site d'ExplorIA, l'agence qui a concu et developpe cette application. C'est simplement un lien informatif qui presente notre equipe et nos services.</p>
+    </div>
+  </div>
+</div>
 
-      <p class="reveal text-xl sm:text-2xl md:text-3xl font-display font-semibold text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-snug mb-4">
-        Gestion de Maintenance Assistee<br class="hidden sm:block"> par Ordinateur
-      </p>
-      <p class="reveal text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-        Plateforme complete de suivi des groupes electrogenes, interventions terrain et maintenance preventive pour le Katanga, RDC.
-      </p>
+<!-- ===== CHAPITRE : DASHBOARD ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-yellow text-black">LE DASHBOARD</span></div>
 
-      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="https://aemi-gmao.vercel.app" target="_blank" class="magnetic bg-neo-yellow neo-border neo-shadow-lg neo-btn px-8 py-4 font-display font-bold text-base text-black">
-          Acceder a l'application &rarr;
-        </a>
-        <a href="#features" class="magnetic bg-white dark:bg-gray-800 neo-border neo-shadow neo-btn px-8 py-4 font-display font-bold text-base">
-          Decouvrir &darr;
-        </a>
-      </div>
+<!-- 20 -->
+<div class="s-block reveal" id="s20">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">20</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La premiere chose que vous voyez</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Une fois connecte en tant qu'administrateur, vous arrivez sur le dashboard. C'est la page d'accueil de l'application. Elle regroupe les informations les plus importantes sous forme de cartes, de graphiques et de listes. Le but : savoir en un coup d'oeil ou en sont les operations.</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Stats counters -->
-      <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-        <div class="bg-white dark:bg-gray-900 neo-border neo-shadow-sm p-5 text-center">
-          <p class="font-display font-black text-3xl md:text-4xl counter" data-target="17">0</p>
-          <p class="text-xs font-mono text-gray-500 mt-1 uppercase tracking-wider">Tables SQL</p>
-        </div>
-        <div class="bg-white dark:bg-gray-900 neo-border neo-shadow-sm p-5 text-center">
-          <p class="font-display font-black text-3xl md:text-4xl text-neo-blue counter" data-target="12">0</p>
-          <p class="text-xs font-mono text-gray-500 mt-1 uppercase tracking-wider">Modules</p>
-        </div>
-        <div class="bg-white dark:bg-gray-900 neo-border neo-shadow-sm p-5 text-center">
-          <p class="font-display font-black text-3xl md:text-4xl text-neo-pink counter" data-target="5">0</p>
-          <p class="text-xs font-mono text-gray-500 mt-1 uppercase tracking-wider">Roles</p>
-        </div>
-        <div class="bg-white dark:bg-gray-900 neo-border neo-shadow-sm p-5 text-center">
-          <p class="font-display font-black text-3xl md:text-4xl text-neo-green counter" data-target="52">0</p>
-          <p class="text-xs font-mono text-gray-500 mt-1 uppercase tracking-wider">K+ Mots Doc</p>
-        </div>
+<!-- 21 -->
+<div class="s-block reveal" id="s21">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">21</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les cartes KPI en haut</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">En haut du dashboard, vous verrez des cartes avec des chiffres cles. Par exemple : le nombre total d'interventions, le nombre d'interventions en cours, le nombre d'equipements actifs, et le taux de completion. Ces chiffres se mettent a jour automatiquement quand les donnees changent.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 22 -->
+<div class="s-block reveal" id="s22">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">22</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les graphiques</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Sous les cartes, vous trouverez des graphiques interactifs. Un graphique en barres montre les interventions par mois. Un graphique en camembert montre la repartition par statut (en cours, terminee, en attente, etc.). Survolez les elements du graphique pour voir les chiffres exacts.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 23 -->
+<div class="s-block reveal" id="s23">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">23</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les interventions recentes</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le dashboard affiche aussi une liste des dernieres interventions creees ou modifiees. Chaque ligne montre la reference, le client, le statut et la date. Vous pouvez cliquer sur une intervention pour voir son detail complet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 24 -->
+<div class="s-block reveal" id="s24">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">24</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les donnees sont reelles</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Toutes les donnees que vous voyez sur le dashboard proviennent de la base de donnees. Nous avons pre-rempli l'application avec des donnees de demonstration realistes : 10 clients, 18 equipements, 18 interventions. Ces donnees sont la pour que vous puissiez tester. Vous pouvez les modifier, en ajouter ou en supprimer.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : INTERVENTIONS ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-blue text-white">LES INTERVENTIONS</span></div>
+
+<!-- 25 -->
+<div class="s-block reveal" id="s25">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">25</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le coeur de l'application</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Interventions est le plus important de toute l'application. C'est ici que vous gerez tout le cycle de vie d'une intervention, de la creation a la cloture. Cliquez sur "Interventions" dans le menu pour y acceder.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 26 -->
+<div class="s-block reveal" id="s26">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">26</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le tableau des interventions</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">La page affiche un tableau avec toutes les interventions. Chaque ligne represente une intervention. Les colonnes affichent : la reference (par exemple INT-2026-001), le client, le site, l'equipement concerne, le type, la priorite, le statut et la date. Actuellement, il y a 18 interventions de demonstration.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 27 -->
+<div class="s-block reveal" id="s27">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">27</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les badges de statut</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque intervention affiche un badge colore pour son statut. Les couleurs sont pensees pour etre comprises immediatement : vert pour termine, bleu pour en cours, orange pour en attente, rouge pour urgent. Vous pouvez reperer d'un coup d'oeil les interventions qui necessitent votre attention.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 28 -->
+<div class="s-block reveal" id="s28">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">28</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les niveaux de priorite</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Chaque intervention a un niveau de priorite :</p>
+      <div class="space-y-1 text-sm">
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-red-500 nb" style="border-width:2px"></span> <strong>Urgente</strong> &mdash; a traiter immediatement</div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-orange-500 nb" style="border-width:2px"></span> <strong>Haute</strong> &mdash; a traiter dans la journee</div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 nb" style="border-width:2px"></span> <strong>Normale</strong> &mdash; dans les delais habituels</div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-gray-400 nb" style="border-width:2px"></span> <strong>Basse</strong> &mdash; quand c'est possible</div>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-      <span class="text-xs font-mono tracking-widest uppercase">Scroll</span>
-      <div class="w-6 h-10 neo-border rounded-full flex items-start justify-center p-1.5">
-        <div class="w-1.5 h-3 bg-gray-900 dark:bg-gray-100 rounded-full" style="animation: float 2s ease-in-out infinite;"></div>
+<!-- 29 -->
+<div class="s-block reveal" id="s29">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">29</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Filtrer et rechercher</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Au-dessus du tableau, vous trouverez une barre de recherche. Tapez le nom d'un client, une reference ou un mot-cle pour filtrer instantanement les resultats. Vous pouvez aussi utiliser les filtres par statut, par type ou par priorite pour affiner votre vue.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 30 -->
+<div class="s-block reveal" id="s30">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">30</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Trier les colonnes</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Cliquez sur l'en-tete d'une colonne pour trier le tableau. Par exemple, cliquez sur "Date" pour voir les plus recentes en premier. Cliquez a nouveau pour inverser l'ordre. Cela fonctionne sur toutes les colonnes : reference, client, statut, etc.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 31 -->
+<div class="s-block reveal" id="s31">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">31</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Creer une nouvelle intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">En haut a droite de la page, vous verrez un bouton "+ Nouvelle intervention". Cliquez dessus pour ouvrir le formulaire de creation. Une fenetre s'ouvre avec tous les champs a remplir.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 32 -->
+<div class="s-block reveal" id="s32">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">32</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le formulaire de creation</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le formulaire vous demande : le client (choisi dans une liste), le site (les sites du client choisi), l'equipement concerne, le type d'intervention, la priorite, une description du probleme, et optionnellement le technicien a assigner. Les champs obligatoires sont marques. Remplissez et cliquez sur "Creer".</p>
+    </div>
+  </div>
+</div>
+
+<!-- 33 -->
+<div class="s-block reveal" id="s33">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">33</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les types d'intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Quand vous creez une intervention, vous choisissez son type :</p>
+      <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+        <p><strong>Corrective</strong> &mdash; quelque chose est en panne, il faut reparer</p>
+        <p><strong>Preventive</strong> &mdash; maintenance planifiee pour eviter les pannes</p>
+        <p><strong>Installation</strong> &mdash; mise en place d'un nouvel equipement</p>
+        <p><strong>Inspection</strong> &mdash; verification de l'etat d'un equipement</p>
+        <p><strong>Depannage</strong> &mdash; intervention rapide pour remettre en service</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Divider -->
-  <div class="section-divider"></div>
-
-  <!-- ==================== SECTION 2: LE CONSTAT ==================== -->
-  <section id="problem" class="py-24 md:py-32 bg-white dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="reveal inline-block bg-neo-pink/10 dark:bg-neo-pink/20 text-neo-pink font-mono font-bold text-xs px-4 py-2 neo-border neo-shadow-pink mb-6 tracking-widest uppercase">Le constat</span>
-        <h2 class="reveal font-display font-black text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-          La maintenance terrain,<br><span class="text-neo-pink">un defi permanent</span>
-        </h2>
-        <p class="reveal text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
-          Dans le secteur minier du Katanga, la gestion des groupes electrogenes repose encore trop souvent sur des processus manuels, des fiches papier et des appels telephoniques. Le resultat ? Des pannes non anticipees, des couts qui explosent, et des equipes terrain sans visibilite.
-        </p>
+<!-- 34 -->
+<div class="s-block reveal" id="s34">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">34</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 11 etats d'une intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Une intervention passe par differents etats au fil de son cycle de vie :</p>
+      <div class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+        <p><strong>Nouvelle</strong> &rarr; <strong>Assignee</strong> &rarr; <strong>Acceptee</strong> &rarr; <strong>En route</strong> &rarr; <strong>Sur site</strong> &rarr; <strong>En cours</strong> &rarr; <strong>En pause</strong> &rarr; <strong>Reprise</strong> &rarr; <strong>Terminee</strong> &rarr; <strong>Validee</strong> &rarr; <strong>Cloturee</strong></p>
       </div>
+      <p class="text-gray-500 text-sm mt-2">Ce workflow detaille permet de savoir exactement ou en est chaque intervention a tout moment.</p>
+    </div>
+  </div>
+</div>
 
-      <div class="grid md:grid-cols-2 gap-6 stagger">
-        <!-- Problem 1 -->
-        <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8">
-          <div class="w-14 h-14 bg-neo-pink/10 neo-border flex items-center justify-center text-2xl mb-5">&#128196;</div>
-          <h3 class="font-display font-bold text-xl mb-3">Suivi papier et tableurs Excel</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            Les fiches d'intervention circulent de main en main, se perdent, arrivent en retard. Aucune traçabilite, aucun historique fiable. Les tableurs deviennent vite obsoletes et incomplets. Les donnees critiques sont eparpillees dans des dizaines de fichiers.
-          </p>
-          <div class="flex items-center gap-2 text-sm font-mono text-neo-pink">
-            <span class="w-2 h-2 bg-neo-pink rounded-full"></span>
-            40% de perte d'information en moyenne
-          </div>
-        </div>
+<!-- 35 -->
+<div class="s-block reveal" id="s35">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">35</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Modifier une intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Sur chaque ligne du tableau, vous trouverez des boutons d'action. Le bouton "Modifier" (icone crayon) ouvre le formulaire avec les donnees actuelles deja remplies. Changez ce que vous souhaitez et cliquez sur "Enregistrer".</p>
+    </div>
+  </div>
+</div>
 
-        <!-- Problem 2 -->
-        <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8">
-          <div class="w-14 h-14 bg-neo-orange/10 neo-border flex items-center justify-center text-2xl mb-5">&#9888;&#65039;</div>
-          <h3 class="font-display font-bold text-xl mb-3">Pannes non anticipees</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            Sans systeme de maintenance preventive, les equipements tombent en panne de maniere imprevue. Chaque arret non planifie coute des milliers de dollars en production perdue, en deplacements d'urgence et en pieces commandees en express.
-          </p>
-          <div class="flex items-center gap-2 text-sm font-mono text-neo-orange">
-            <span class="w-2 h-2 bg-neo-orange rounded-full"></span>
-            Cout moyen d'une panne imprevue : $2,500+
-          </div>
-        </div>
+<!-- 36 -->
+<div class="s-block reveal" id="s36">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">36</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Supprimer une intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le bouton "Supprimer" (icone poubelle) affiche d'abord une confirmation pour eviter les suppressions accidentelles. Cliquez sur "Confirmer" pour supprimer definitivement, ou "Annuler" pour revenir en arriere. La suppression est immediate et irreversible.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- Problem 3 -->
-        <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8">
-          <div class="w-14 h-14 bg-neo-blue/10 neo-border flex items-center justify-center text-2xl mb-5">&#128065;</div>
-          <h3 class="font-display font-bold text-xl mb-3">Zero visibilite en temps reel</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            Les superviseurs ne savent pas ou sont les techniciens, quel est l'etat d'avancement des interventions, ni quels equipements necessitent une attention immediate. Les decisions sont prises a l'aveugle, basees sur des rapports qui arrivent des jours apres.
-          </p>
-          <div class="flex items-center gap-2 text-sm font-mono text-neo-blue">
-            <span class="w-2 h-2 bg-neo-blue rounded-full"></span>
-            Delai de reporting moyen : 3-5 jours
-          </div>
-        </div>
+<!-- 37 -->
+<div class="s-block reveal" id="s37">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">37</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La pagination</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Quand il y a beaucoup d'interventions, le tableau se divise en pages. En bas du tableau, vous verrez des boutons pour naviguer entre les pages : "Precedent" et "Suivant". Le nombre d'elements par page est ajustable.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- Problem 4 -->
-        <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8">
-          <div class="w-14 h-14 bg-neo-purple/10 neo-border flex items-center justify-center text-2xl mb-5">&#128176;</div>
-          <h3 class="font-display font-bold text-xl mb-3">Facturation approximative</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            Sans lien direct entre les interventions realisees et la facturation, des heures de travail passent entre les mailles du filet. Les devis sont rediges manuellement, les factures arrivent en retard, et le rapprochement comptable est un cauchemar.
-          </p>
-          <div class="flex items-center gap-2 text-sm font-mono text-neo-purple">
-            <span class="w-2 h-2 bg-neo-purple rounded-full"></span>
-            15-20% de revenus non factures
-          </div>
-        </div>
+<!-- 38 -->
+<div class="s-block reveal" id="s38">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">38</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Exporter en PDF</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Un bouton "Exporter PDF" en haut de la page permet de generer un document PDF avec la liste des interventions actuellement affichees. Le PDF est telecharge automatiquement et peut etre imprime ou envoye par email.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 39 -->
+<div class="s-block reveal" id="s39">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">39</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 18 interventions de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">L'application contient 18 interventions deja creees avec des statuts varies : certaines sont nouvelles, d'autres en cours, d'autres terminees. Elles sont liees a differents clients et equipements. N'hesitez pas a les explorer, les modifier, ou en creer de nouvelles pour voir comment le systeme reagit.</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Divider -->
-  <div class="section-divider"></div>
+<!-- ===== CHAPITRE : CLIENTS ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-green text-black">LES CLIENTS</span></div>
 
-  <!-- ==================== SECTION 3: FEATURES ==================== -->
-  <section id="features" class="py-24 md:py-32 bg-neo-cream dark:bg-neo-dark">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="reveal inline-block bg-neo-yellow/20 dark:bg-neo-yellow/10 text-gray-900 dark:text-neo-yellow font-mono font-bold text-xs px-4 py-2 neo-border neo-shadow-yellow mb-6 tracking-widest uppercase">La plateforme</span>
-        <h2 class="reveal font-display font-black text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-          Tout ce qu'il faut.<br><span class="text-neo-blue">Rien de superflu.</span>
-        </h2>
-        <p class="reveal text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
-          AEMI regroupe 12 modules interconnectes dans une interface unique, pensee pour le terrain. Chaque fonctionnalite a ete concue en collaboration avec les equipes de Forrest Groupe pour repondre aux realites du Katanga.
-        </p>
-      </div>
+<!-- 40 -->
+<div class="s-block reveal" id="s40">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">40</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La page Clients</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Ce module liste tous les clients AEMI. Chaque client represente une entreprise ou une organisation pour laquelle vous effectuez des interventions. Le tableau affiche le nom, le secteur d'activite, la ville et le statut (actif ou inactif).</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Features grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
-        <!-- Dashboard -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-yellow neo-border flex items-center justify-center text-xl font-bold transition-transform group-hover:rotate-6">&#128202;</div>
-            <h3 class="font-display font-bold text-lg">Dashboard</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Vue d'ensemble en temps reel avec KPIs, graphiques interactifs, resume des interventions du jour, alertes et notifications. Toutes les metriques critiques en un coup d'oeil.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-yellow/20 px-2 py-0.5 neo-border">KPIs</span>
-            <span class="text-xs font-mono bg-neo-yellow/20 px-2 py-0.5 neo-border">Graphiques</span>
-            <span class="text-xs font-mono bg-neo-yellow/20 px-2 py-0.5 neo-border">Temps reel</span>
-          </div>
-        </div>
+<!-- 41 -->
+<div class="s-block reveal" id="s41">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">41</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Creer un client</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Cliquez sur "+ Nouveau client" pour ouvrir le formulaire. Renseignez le nom de l'entreprise, son secteur d'activite (minier, industriel, commercial, etc.), la ville, et le statut. Le client apparaitra immediatement dans la liste.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- Interventions -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-blue neo-border flex items-center justify-center text-xl font-bold text-white transition-transform group-hover:rotate-6">&#128736;</div>
-            <h3 class="font-display font-bold text-lg">Interventions</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Workflow complet a 11 etats, de la demande a la cloture. Assignation des techniciens, suivi en temps reel, checklists terrain, photos et signatures electroniques.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-blue/20 px-2 py-0.5 neo-border">11 etats</span>
-            <span class="text-xs font-mono bg-neo-blue/20 px-2 py-0.5 neo-border">Workflow</span>
-            <span class="text-xs font-mono bg-neo-blue/20 px-2 py-0.5 neo-border">Terrain</span>
-          </div>
-        </div>
+<!-- 42 -->
+<div class="s-block reveal" id="s42">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">42</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les sites d'un client</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Un client peut avoir plusieurs sites. Par exemple, la Gecamines a des sites a Lubumbashi, Likasi et Kolwezi. Chaque site a sa propre adresse et ses propres equipements. Quand vous creez une intervention, vous choisissez d'abord le client, puis le site specifique.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- Equipements -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-green neo-border flex items-center justify-center text-xl font-bold transition-transform group-hover:rotate-6">&#9881;&#65039;</div>
-            <h3 class="font-display font-bold text-lg">Equipements</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Fiche technique complete de chaque groupe electrogene. Suivi des heures de fonctionnement, historique des interventions, maintenance preventive automatique.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-green/20 px-2 py-0.5 neo-border">Preventif</span>
-            <span class="text-xs font-mono bg-neo-green/20 px-2 py-0.5 neo-border">Heures</span>
-            <span class="text-xs font-mono bg-neo-green/20 px-2 py-0.5 neo-border">Historique</span>
-          </div>
-        </div>
-
-        <!-- Clients -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-orange neo-border flex items-center justify-center text-xl font-bold text-white transition-transform group-hover:rotate-6">&#128101;</div>
-            <h3 class="font-display font-bold text-lg">Clients & Sites</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Gestion multi-sites avec contacts multiples par site. Geolocalisation, historique complet des interventions par client, suivi contractuel et conditions specifiques.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-orange/20 px-2 py-0.5 neo-border">Multi-sites</span>
-            <span class="text-xs font-mono bg-neo-orange/20 px-2 py-0.5 neo-border">Contacts</span>
-            <span class="text-xs font-mono bg-neo-orange/20 px-2 py-0.5 neo-border">GPS</span>
-          </div>
-        </div>
-
-        <!-- Planning -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-purple neo-border flex items-center justify-center text-xl font-bold text-white transition-transform group-hover:rotate-6">&#128197;</div>
-            <h3 class="font-display font-bold text-lg">Planning</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Double vue Kanban et calendrier. Drag & drop pour reorganiser les taches, attribution par equipe, detection automatique des conflits de planning.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-purple/20 px-2 py-0.5 neo-border">Kanban</span>
-            <span class="text-xs font-mono bg-neo-purple/20 px-2 py-0.5 neo-border">Calendrier</span>
-            <span class="text-xs font-mono bg-neo-purple/20 px-2 py-0.5 neo-border">Drag & Drop</span>
-          </div>
-        </div>
-
-        <!-- Carte -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-pink neo-border flex items-center justify-center text-xl font-bold transition-transform group-hover:rotate-6">&#127758;</div>
-            <h3 class="font-display font-bold text-lg">Carte Interactive</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Cartographie Leaflet avec tous les sites clients positionnes. Marqueurs dynamiques par statut d'intervention, filtres par zone geographique et par technicien.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-pink/20 px-2 py-0.5 neo-border">Leaflet</span>
-            <span class="text-xs font-mono bg-neo-pink/20 px-2 py-0.5 neo-border">Marqueurs</span>
-            <span class="text-xs font-mono bg-neo-pink/20 px-2 py-0.5 neo-border">Filtres</span>
-          </div>
-        </div>
-
-        <!-- Facturation -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-yellow neo-border flex items-center justify-center text-xl font-bold transition-transform group-hover:rotate-6">&#128181;</div>
-            <h3 class="font-display font-bold text-lg">Facturation</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Generez devis et factures directement depuis les interventions. PDF professionnel auto-genere, rapprochement comptable, suivi des paiements et historique complet.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-yellow/20 px-2 py-0.5 neo-border">Devis</span>
-            <span class="text-xs font-mono bg-neo-yellow/20 px-2 py-0.5 neo-border">Factures</span>
-            <span class="text-xs font-mono bg-neo-yellow/20 px-2 py-0.5 neo-border">PDF</span>
-          </div>
-        </div>
-
-        <!-- Atelier -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-blue neo-border flex items-center justify-center text-xl font-bold text-white transition-transform group-hover:rotate-6">&#128295;</div>
-            <h3 class="font-display font-bold text-lg">Atelier & Stock</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Work orders complets pour les travaux en atelier. Gestion d'inventaire avec alertes de stock minimum, suivi des pieces detachees et bons de commande.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-blue/20 px-2 py-0.5 neo-border">Work Orders</span>
-            <span class="text-xs font-mono bg-neo-blue/20 px-2 py-0.5 neo-border">Inventaire</span>
-            <span class="text-xs font-mono bg-neo-blue/20 px-2 py-0.5 neo-border">Alertes</span>
-          </div>
-        </div>
-
-        <!-- Logistique -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-7 group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-neo-green neo-border flex items-center justify-center text-xl font-bold transition-transform group-hover:rotate-6">&#128666;</div>
-            <h3 class="font-display font-bold text-lg">Logistique & Charroi</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Gestion de la flotte vehicules, assignation des chauffeurs, demandes de transport, suivi des missions terrain. Tout le charroi centralise dans un seul module.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="text-xs font-mono bg-neo-green/20 px-2 py-0.5 neo-border">Vehicules</span>
-            <span class="text-xs font-mono bg-neo-green/20 px-2 py-0.5 neo-border">Missions</span>
-            <span class="text-xs font-mono bg-neo-green/20 px-2 py-0.5 neo-border">Chauffeurs</span>
-          </div>
-        </div>
+<!-- 43 -->
+<div class="s-block reveal" id="s43">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">43</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 10 clients de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">Nous avons cree 10 clients fictifs inspires du secteur minier du Katanga : des entreprises minieres, des cimenteries, des brasseries, etc. Chacun a entre 1 et 3 sites. Au total, 19 sites et 16 contacts sont enregistres. Ces donnees illustrent comment l'application gere une base clientele realiste.</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Divider -->
-  <div class="section-divider"></div>
+<!-- ===== CHAPITRE : EQUIPEMENTS ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-purple text-white">LES EQUIPEMENTS</span></div>
 
-  <!-- ==================== SECTION 4: ARCHITECTURE ==================== -->
-  <section id="tech" class="py-24 md:py-32 bg-gray-900 dark:bg-black text-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="reveal inline-block bg-neo-blue/20 text-neo-blue font-mono font-bold text-xs px-4 py-2 border-2 border-neo-blue neo-shadow-blue mb-6 tracking-widest uppercase">Architecture</span>
-        <h2 class="reveal font-display font-black text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-          Construit pour<br><span class="text-neo-yellow">durer</span>
-        </h2>
-        <p class="reveal text-lg text-gray-400 leading-relaxed">
-          Stack moderne, performant et securise. Chaque choix technologique a ete fait pour garantir fiabilite, rapidite et evolutivite sur le long terme.
-        </p>
-      </div>
+<!-- 44 -->
+<div class="s-block reveal" id="s44">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">44</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La page Equipements</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Ce module gere l'ensemble du parc d'equipements : groupes electrogenes, transformateurs, onduleurs, etc. Le tableau affiche le numero de serie, la marque, le modele, la puissance, les heures de fonctionnement et le statut.</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Tech stack -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 stagger">
-        <div class="neo-card border-2 border-gray-700 bg-gray-800 p-6 text-center hover:border-neo-yellow transition-colors">
-          <p class="font-display font-bold text-2xl mb-1">React 18</p>
-          <p class="text-sm text-gray-400">+ TypeScript strict</p>
-          <p class="text-xs text-gray-500 mt-3">Interface reactive avec typage complet. Composants reutilisables et maintenables.</p>
-        </div>
-        <div class="neo-card border-2 border-gray-700 bg-gray-800 p-6 text-center hover:border-neo-blue transition-colors">
-          <p class="font-display font-bold text-2xl mb-1">Supabase</p>
-          <p class="text-sm text-gray-400">Auth + DB + Realtime</p>
-          <p class="text-xs text-gray-500 mt-3">Backend complet avec authentification, base PostgreSQL et abonnements temps reel.</p>
-        </div>
-        <div class="neo-card border-2 border-gray-700 bg-gray-800 p-6 text-center hover:border-neo-pink transition-colors">
-          <p class="font-display font-bold text-2xl mb-1">Tailwind</p>
-          <p class="text-sm text-gray-400">+ shadcn/ui</p>
-          <p class="text-xs text-gray-500 mt-3">Design system complet avec composants accessibles et theme clair/sombre natif.</p>
-        </div>
-        <div class="neo-card border-2 border-gray-700 bg-gray-800 p-6 text-center hover:border-neo-green transition-colors">
-          <p class="font-display font-bold text-2xl mb-1">Vite</p>
-          <p class="text-sm text-gray-400">+ PWA + React Query</p>
-          <p class="text-xs text-gray-500 mt-3">Build ultra-rapide, mode hors-ligne, cache intelligent et invalidation automatique.</p>
-        </div>
-      </div>
+<!-- 45 -->
+<div class="s-block reveal" id="s45">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">45</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Creer un equipement</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le formulaire de creation demande : le nom, le numero de serie, la marque, le modele, la puissance (en kVA), le client et le site ou il est installe. Une fois cree, l'equipement est lie au site et apparaitra dans les listes deroulantes lors de la creation d'interventions.</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Performance metrics -->
-      <div class="reveal grid sm:grid-cols-3 gap-6">
-        <div class="border-2 border-gray-700 p-8 text-center">
-          <p class="font-display font-black text-5xl md:text-6xl text-neo-yellow mb-2 counter" data-target="17" data-suffix="">0</p>
-          <p class="font-mono text-sm text-gray-400 uppercase tracking-wider">Tables PostgreSQL</p>
-          <p class="text-xs text-gray-500 mt-2">Schema complet avec migrations, triggers, indexes et Row Level Security</p>
-        </div>
-        <div class="border-2 border-gray-700 p-8 text-center">
-          <p class="font-display font-black text-5xl md:text-6xl text-neo-blue mb-2 counter" data-target="5" data-suffix="">0</p>
-          <p class="font-mono text-sm text-gray-400 uppercase tracking-wider">Roles RBAC</p>
-          <p class="text-xs text-gray-500 mt-2">Admin, Superviseur, Technicien, Chauffeur, Agent Admin avec permissions granulaires</p>
-        </div>
-        <div class="border-2 border-gray-700 p-8 text-center">
-          <p class="font-display font-black text-5xl md:text-6xl text-neo-pink mb-2">PWA</p>
-          <p class="font-mono text-sm text-gray-400 uppercase tracking-wider">Progressive Web App</p>
-          <p class="text-xs text-gray-500 mt-2">Installable sur mobile, mode hors-ligne, notifications push, icone sur l'ecran d'accueil</p>
-        </div>
-      </div>
+<!-- 46 -->
+<div class="s-block reveal" id="s46">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">46</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le compteur d'heures</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque equipement possede un compteur d'heures de fonctionnement. Ce compteur est essentiel pour la maintenance preventive. Par exemple, un groupe electrogene peut necessiter une vidange toutes les 500 heures. L'application suit ces heures et peut declencher des alertes automatiques.</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Security -->
-      <div class="reveal mt-16 border-2 border-neo-yellow/30 p-8 md:p-12">
-        <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div class="w-16 h-16 bg-neo-yellow/10 border-2 border-neo-yellow flex items-center justify-center text-3xl flex-shrink-0">&#128274;</div>
-          <div>
-            <h3 class="font-display font-bold text-2xl mb-3">Securite de niveau entreprise</h3>
-            <p class="text-gray-400 leading-relaxed mb-4">Row Level Security (RLS) sur chaque table. Authentification JWT avec refresh tokens. Chiffrement des donnees au repos et en transit. Audit log complet des actions utilisateurs. Politique de mot de passe renforcee.</p>
-            <div class="flex flex-wrap gap-3">
-              <span class="text-xs font-mono bg-neo-yellow/10 text-neo-yellow px-3 py-1 border border-neo-yellow/30">RLS PostgreSQL</span>
-              <span class="text-xs font-mono bg-neo-yellow/10 text-neo-yellow px-3 py-1 border border-neo-yellow/30">JWT Auth</span>
-              <span class="text-xs font-mono bg-neo-yellow/10 text-neo-yellow px-3 py-1 border border-neo-yellow/30">HTTPS</span>
-              <span class="text-xs font-mono bg-neo-yellow/10 text-neo-yellow px-3 py-1 border border-neo-yellow/30">Zod Validation</span>
-            </div>
-          </div>
-        </div>
+<!-- 47 -->
+<div class="s-block reveal" id="s47">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">47</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les statuts d'un equipement</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Un equipement peut etre dans l'un de ces etats :</p>
+      <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+        <p><strong>Operationnel</strong> &mdash; fonctionne normalement</p>
+        <p><strong>En maintenance</strong> &mdash; en cours de reparation ou revision</p>
+        <p><strong>En panne</strong> &mdash; hors service, necessite une intervention</p>
+        <p><strong>Decommissionne</strong> &mdash; retire du service definitivement</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Divider -->
-  <div class="section-divider"></div>
-
-  <!-- ==================== SECTION 5: HOW IT WORKS ==================== -->
-  <section id="workflow" class="py-24 md:py-32 bg-white dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="reveal inline-block bg-neo-green/10 dark:bg-neo-green/20 text-neo-green font-mono font-bold text-xs px-4 py-2 neo-border mb-6 tracking-widest uppercase" style="box-shadow: 5px 5px 0 #00D68F;">Workflow</span>
-        <h2 class="reveal font-display font-black text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-          Du signalement a la<br><span class="text-neo-green">facture en 5 etapes</span>
-        </h2>
-        <p class="reveal text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
-          Un processus fluide et entierement tracable, de la detection du probleme jusqu'au reglement financier. Chaque etape est documentee, chaque action est enregistree.
-        </p>
-      </div>
-
-      <div class="relative stagger">
-        <!-- Timeline line -->
-        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 dark:bg-gray-700 -translate-x-1/2"></div>
-
-        <!-- Step 1 -->
-        <div class="relative flex flex-col md:flex-row items-center gap-6 mb-12">
-          <div class="md:w-1/2 md:text-right md:pr-12">
-            <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8 inline-block text-left">
-              <span class="font-mono text-xs text-neo-green font-bold tracking-widest">ETAPE 01</span>
-              <h3 class="font-display font-bold text-xl mt-2 mb-3">Signalement & Creation</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Un client signale un probleme ou une maintenance preventive est declenchee automatiquement par le systeme. L'intervention est creee avec toutes les informations necessaires : site, equipement, priorite, description detaillee.</p>
-            </div>
-          </div>
-          <div class="hidden md:flex w-12 h-12 bg-neo-green neo-border text-white font-display font-black text-lg items-center justify-center z-10 flex-shrink-0">1</div>
-          <div class="md:w-1/2 md:pl-12"></div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 mb-12">
-          <div class="md:w-1/2 md:text-left md:pl-12">
-            <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8 inline-block text-left">
-              <span class="font-mono text-xs text-neo-blue font-bold tracking-widest">ETAPE 02</span>
-              <h3 class="font-display font-bold text-xl mt-2 mb-3">Planification & Assignation</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Le superviseur assigne un technicien via le planning Kanban ou calendrier. Le systeme verifie la disponibilite, les competences et la proximite geographique. Le technicien recoit une notification instantanee sur son mobile.</p>
-            </div>
-          </div>
-          <div class="hidden md:flex w-12 h-12 bg-neo-blue neo-border text-white font-display font-black text-lg items-center justify-center z-10 flex-shrink-0">2</div>
-          <div class="md:w-1/2 md:pr-12"></div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="relative flex flex-col md:flex-row items-center gap-6 mb-12">
-          <div class="md:w-1/2 md:text-right md:pr-12">
-            <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8 inline-block text-left">
-              <span class="font-mono text-xs text-neo-pink font-bold tracking-widest">ETAPE 03</span>
-              <h3 class="font-display font-bold text-xl mt-2 mb-3">Intervention Terrain</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Le technicien arrive sur site, demarre l'intervention via son mobile. Il suit la checklist ISO, prend des photos, note les pieces utilisees, remplit le rapport. Signature electronique du client a la fin.</p>
-            </div>
-          </div>
-          <div class="hidden md:flex w-12 h-12 bg-neo-pink neo-border text-white font-display font-black text-lg items-center justify-center z-10 flex-shrink-0">3</div>
-          <div class="md:w-1/2 md:pl-12"></div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 mb-12">
-          <div class="md:w-1/2 md:text-left md:pl-12">
-            <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8 inline-block text-left">
-              <span class="font-mono text-xs text-neo-orange font-bold tracking-widest">ETAPE 04</span>
-              <h3 class="font-display font-bold text-xl mt-2 mb-3">Validation & Reporting</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Le superviseur valide l'intervention, verifie le rapport et les photos. Les donnees alimentent automatiquement les KPIs du dashboard, les graphiques de performance et l'historique de l'equipement.</p>
-            </div>
-          </div>
-          <div class="hidden md:flex w-12 h-12 bg-neo-orange neo-border text-white font-display font-black text-lg items-center justify-center z-10 flex-shrink-0">4</div>
-          <div class="md:w-1/2 md:pr-12"></div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="relative flex flex-col md:flex-row items-center gap-6">
-          <div class="md:w-1/2 md:text-right md:pr-12">
-            <div class="neo-card bg-neo-cream dark:bg-gray-800 neo-border neo-shadow p-8 inline-block text-left">
-              <span class="font-mono text-xs text-neo-yellow font-bold tracking-widest">ETAPE 05</span>
-              <h3 class="font-display font-bold text-xl mt-2 mb-3">Facturation & Cloture</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">La facture est generee automatiquement depuis l'intervention validee. PDF professionnel envoye au client. Rapprochement comptable automatique. L'intervention est cloturee, l'equipement mis a jour.</p>
-            </div>
-          </div>
-          <div class="hidden md:flex w-12 h-12 bg-neo-yellow neo-border text-black font-display font-black text-lg items-center justify-center z-10 flex-shrink-0">5</div>
-          <div class="md:w-1/2 md:pl-12"></div>
-        </div>
+<!-- 48 -->
+<div class="s-block reveal" id="s48">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">48</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 18 equipements de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">L'application contient 18 equipements pre-enregistres : des groupes electrogenes Caterpillar, Cummins, FG Wilson de differentes puissances (de 100 a 1500 kVA), des transformateurs et des onduleurs. Chacun est rattache a un site client specifique avec un compteur d'heures realiste.</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Divider -->
-  <div class="section-divider"></div>
+<!-- ===== CHAPITRE : PLANNING ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-pink text-white">LE PLANNING</span></div>
 
-  <!-- ==================== SECTION 6: ACCESS ==================== -->
-  <section id="access" class="py-24 md:py-32 bg-neo-cream dark:bg-neo-dark">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="reveal inline-block bg-black dark:bg-white text-neo-yellow dark:text-neo-dark font-mono font-bold text-xs px-4 py-2 neo-border neo-shadow-sm mb-6 tracking-widest uppercase">Acces</span>
-        <h2 class="reveal font-display font-black text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-          Pret a explorer<span class="text-neo-yellow">.</span>
-        </h2>
-        <p class="reveal text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-          Connectez-vous a l'application avec les identifiants ci-dessous pour decouvrir l'ensemble des fonctionnalites. Deux profils sont disponibles pour tester les differentes vues.
-        </p>
-      </div>
+<!-- 49 -->
+<div class="s-block reveal" id="s49">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">49</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Deux vues pour organiser le travail</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Planning propose deux facons de visualiser les interventions planifiees : la vue Kanban et la vue Calendrier. Vous pouvez basculer entre les deux avec un bouton en haut de la page.</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Credentials -->
-      <div class="reveal grid md:grid-cols-2 gap-6 mb-12">
-        <!-- Admin -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-8">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 bg-neo-yellow neo-border flex items-center justify-center font-display font-black text-sm">A</div>
-            <div>
-              <p class="font-display font-bold">Administrateur</p>
-              <p class="text-xs text-gray-500 font-mono">Acces complet a tous les modules</p>
-            </div>
-          </div>
-          <div class="space-y-3">
-            <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 neo-border">
-              <span class="text-xs font-mono text-gray-500">Email</span>
-              <span class="font-mono font-bold text-sm select-all">admin@aemi.cd</span>
-            </div>
-            <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 neo-border">
-              <span class="text-xs font-mono text-gray-500">Mot de passe</span>
-              <span class="font-mono font-bold text-sm select-all">aemi2026</span>
-            </div>
-            <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 neo-border">
-              <span class="text-xs font-mono text-gray-500">Nom</span>
-              <span class="font-mono text-sm">Clement Kabongo</span>
-            </div>
-          </div>
-        </div>
+<!-- 50 -->
+<div class="s-block reveal" id="s50">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">50</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La vue Kanban</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">La vue Kanban affiche les interventions sous forme de cartes, reparties dans des colonnes par statut : "A faire", "En cours", "Terminee". Chaque carte montre le nom du client, le site, le technicien assigne et la priorite. Vous pouvez glisser-deposer une carte d'une colonne a l'autre pour changer son statut.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- Technician -->
-        <div class="neo-card bg-white dark:bg-gray-900 neo-border neo-shadow p-8">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 bg-neo-blue neo-border flex items-center justify-center font-display font-black text-sm text-white">T</div>
-            <div>
-              <p class="font-display font-bold">Technicien</p>
-              <p class="text-xs text-gray-500 font-mono">Vue mobile terrain optimisee</p>
-            </div>
-          </div>
-          <div class="space-y-3">
-            <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 neo-border">
-              <span class="text-xs font-mono text-gray-500">Email</span>
-              <span class="font-mono font-bold text-sm select-all">tech1@aemi.cd</span>
-            </div>
-            <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 neo-border">
-              <span class="text-xs font-mono text-gray-500">Mot de passe</span>
-              <span class="font-mono font-bold text-sm select-all">aemi2026</span>
-            </div>
-            <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-3 neo-border">
-              <span class="text-xs font-mono text-gray-500">Nom</span>
-              <span class="font-mono text-sm">Patrick Ilunga</span>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- 51 -->
+<div class="s-block reveal" id="s51">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">51</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La vue Calendrier</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">La vue Calendrier montre les interventions positionnees sur un calendrier mensuel. Chaque intervention apparait comme un bloc colore sur le jour ou elle est planifiee. Vous pouvez naviguer entre les mois et cliquer sur une intervention pour voir ses details.</p>
+    </div>
+  </div>
+</div>
 
-      <!-- CTA -->
-      <div class="reveal text-center">
-        <a href="https://aemi-gmao.vercel.app" target="_blank" class="magnetic inline-flex items-center gap-3 bg-neo-yellow neo-border neo-shadow-lg neo-btn px-10 py-5 font-display font-bold text-lg text-black">
-          Lancer l'application AEMI
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
-        <p class="text-sm text-gray-400 mt-6 font-mono">
-          <a href="content.md" class="underline hover:text-neo-blue transition-colors">Documentation complete (52 000+ mots)</a>
-        </p>
+<!-- 52 -->
+<div class="s-block reveal" id="s52">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">52</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le drag & drop</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Dans la vue Kanban, le glisser-deposer est la maniere la plus rapide de reorganiser les taches. Attrapez une carte avec la souris (ou le doigt sur mobile), faites-la glisser vers une autre colonne, et relâchez. Le statut de l'intervention est mis a jour automatiquement.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : CARTE ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-orange text-black">LA CARTE INTERACTIVE</span></div>
+
+<!-- 53 -->
+<div class="s-block reveal" id="s53">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">53</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La cartographie</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Carte affiche une carte interactive (Leaflet) centree sur le Katanga. Tous les sites clients y sont positionnes avec des marqueurs. La carte permet de visualiser geographiquement ou se trouvent vos clients et ou les interventions ont lieu.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 54 -->
+<div class="s-block reveal" id="s54">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">54</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les marqueurs colores</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque marqueur sur la carte a une couleur qui correspond au statut de l'intervention la plus recente sur ce site. Vert = tout va bien, orange = intervention en attente, rouge = intervention urgente. En un coup d'oeil, vous identifiez les zones qui necessitent une attention.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 55 -->
+<div class="s-block reveal" id="s55">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">55</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Cliquer sur un marqueur</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Quand vous cliquez sur un marqueur, une info-bulle s'affiche avec le nom du client, le nom du site, l'adresse et le nombre d'interventions en cours. Vous pouvez zoomer, dezoomer et naviguer sur la carte librement.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : FACTURATION ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-yellow text-black">LA FACTURATION</span></div>
+
+<!-- 56 -->
+<div class="s-block reveal" id="s56">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">56</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Deux onglets : Devis et Factures</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Facturation est divise en deux onglets. Le premier, "Devis", liste toutes les propositions commerciales envoyees aux clients. Le second, "Factures", liste les factures emises. Vous pouvez naviguer entre les deux en cliquant sur l'onglet correspondant.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 57 -->
+<div class="s-block reveal" id="s57">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">57</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Creer un devis</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Cliquez sur "+ Nouveau devis" pour creer une proposition. Le formulaire demande : le client, la description des travaux, les lignes de devis (description, quantite, prix unitaire) et les conditions. Le montant total se calcule automatiquement.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 58 -->
+<div class="s-block reveal" id="s58">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">58</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Creer une facture</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Meme principe que le devis. La facture peut etre creee depuis zero ou generee a partir d'un devis accepte. Chaque facture a un numero unique, un montant, une date d'echeance et un statut de paiement.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 59 -->
+<div class="s-block reveal" id="s59">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">59</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les statuts de paiement</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-2">Chaque facture passe par ces etats :</p>
+      <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+        <p><strong>Brouillon</strong> &mdash; en cours de redaction</p>
+        <p><strong>Envoyee</strong> &mdash; transmise au client</p>
+        <p><strong>Payee</strong> &mdash; reglement recu</p>
+        <p><strong>En retard</strong> &mdash; echeance depassee sans paiement</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-gray-900 dark:bg-black text-white border-t-4 border-neo-yellow">
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-neo-yellow neo-border flex items-center justify-center font-display font-black text-sm">A</div>
-          <div>
-            <p class="font-display font-bold text-lg">ExplorIA <span class="text-neo-pink">&times;</span> Forrest Groupe</p>
-            <p class="text-xs text-gray-500 font-mono">AEMI GMAO v1.0 &mdash; Fevrier 2026</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <a href="https://aemi-gmao.vercel.app" target="_blank" class="bg-neo-yellow text-black font-display font-bold px-5 py-2.5 text-sm neo-btn neo-border neo-shadow-sm">App</a>
-          <a href="content.md" class="bg-transparent text-white font-display font-bold px-5 py-2.5 text-sm border-2 border-gray-600 hover:border-white transition-colors">Docs</a>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-        <p class="text-gray-600 text-xs font-mono">Concu et developpe par ExplorIA &mdash; Tous droits reserves 2026</p>
+<!-- 60 -->
+<div class="s-block reveal" id="s60">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">60</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Generer un PDF</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque devis et chaque facture peut etre exporte en PDF professionnel. Cliquez sur le bouton "PDF" a cote du document. Le fichier se telecharge avec l'en-tete AEMI, les coordonnees du client, le detail des lignes et le montant total. Pret a etre imprime ou envoye.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 61 -->
+<div class="s-block reveal" id="s61">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">61</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Donnees de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">L'application contient 4 devis et 4 factures de demonstration, lies aux clients existants, avec des montants realistes. Certains sont en brouillon, d'autres envoyes, d'autres payes. Testez la generation PDF sur l'un d'eux pour voir le resultat.</p>
       </div>
     </div>
-  </footer>
+  </div>
+</div>
 
-  <!-- Back to top -->
-  <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-neo-yellow neo-border neo-shadow neo-btn flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300" aria-label="Retour en haut">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
-  </button>
+<!-- ===== CHAPITRE : ATELIER ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-blue text-white">L'ATELIER</span></div>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <script>
-  (function() {
-    'use strict';
+<!-- 62 -->
+<div class="s-block reveal" id="s62">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">62</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les work orders</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Atelier gere les travaux qui se font en atelier (pas sur site client). Un work order est un bon de travail : il decrit ce qui doit etre fait, sur quel equipement, avec quel niveau d'urgence. Le tableau affiche la reference, la description, le statut et la date de livraison prevue.</p>
+    </div>
+  </div>
+</div>
 
-    // ===== DARK MODE =====
-    window.toggleDark = function() {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('dark', document.documentElement.classList.contains('dark'));
-    };
-    if (localStorage.getItem('dark') === 'true' || (!localStorage.getItem('dark') && matchMedia('(prefers-color-scheme:dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
+<!-- 63 -->
+<div class="s-block reveal" id="s63">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">63</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les statuts de production</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-2">Chaque work order passe par :</p>
+      <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+        <p><strong>En attente</strong> &mdash; pas encore commence</p>
+        <p><strong>En production</strong> &mdash; travaux en cours a l'atelier</p>
+        <p><strong>Termine</strong> &mdash; travaux finis, pret a etre livre</p>
+        <p><strong>Livre</strong> &mdash; l'equipement a ete rendu au client</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    // ===== SCROLL PROGRESS =====
-    const progress = document.getElementById('progress');
-    const btt = document.getElementById('btt');
-    const navbar = document.getElementById('navbar');
+<!-- 64 -->
+<div class="s-block reveal" id="s64">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">64</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 7 work orders de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">7 bons de travail sont pre-enregistres avec differents statuts. Certains sont en attente, d'autres en production, d'autres livres. Ils correspondent a des reparations ou des revisions de groupes electrogenes pour differents clients.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    window.addEventListener('scroll', function() {
-      const s = window.scrollY;
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.width = (s / h * 100) + '%';
+<!-- ===== CHAPITRE : INVENTAIRE ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-green text-black">L'INVENTAIRE</span></div>
 
-      // Back to top
-      if (s > 600) { btt.style.opacity = '1'; btt.style.pointerEvents = 'auto'; }
-      else { btt.style.opacity = '0'; btt.style.pointerEvents = 'none'; }
+<!-- 65 -->
+<div class="s-block reveal" id="s65">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">65</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le stock de pieces</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Inventaire gere le stock de pieces detachees et consommables. Le tableau liste chaque article avec son nom, sa reference, la quantite en stock, le seuil d'alerte minimum et le prix unitaire.</p>
+    </div>
+  </div>
+</div>
 
-      // Navbar bg
-      if (s > 80) { navbar.classList.add('bg-white/90', 'dark:bg-gray-900/90', 'backdrop-blur-lg', 'shadow-lg'); }
-      else { navbar.classList.remove('bg-white/90', 'dark:bg-gray-900/90', 'backdrop-blur-lg', 'shadow-lg'); }
-    }, { passive: true });
+<!-- 66 -->
+<div class="s-block reveal" id="s66">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">66</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les alertes de stock bas</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Quand la quantite en stock d'un article passe en dessous de son seuil minimum, l'application le signale visuellement avec un badge rouge. Par exemple, si vous avez defini un minimum de 5 filtres a huile et qu'il n'en reste que 2, l'alerte se declenche pour vous rappeler de commander.</p>
+    </div>
+  </div>
+</div>
 
-    // ===== SCROLL REVEAL =====
-    const revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+<!-- 67 -->
+<div class="s-block reveal" id="s67">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">67</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 15 articles de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">15 articles sont deja en stock : filtres a huile, filtres a air, courroies, bougies, batteries, joints, huile moteur, liquide de refroidissement, etc. Chaque article a une quantite, un seuil d'alerte et un prix. Certains sont volontairement en dessous du seuil pour que vous puissiez voir les alertes en action.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger').forEach(function(el) {
-      revealObserver.observe(el);
-    });
+<!-- ===== CHAPITRE : LOGISTIQUE ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-orange text-black">LA LOGISTIQUE</span></div>
 
-    // ===== COUNTER ANIMATION =====
-    const counterObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting && !e.target.dataset.counted) {
-          e.target.dataset.counted = 'true';
-          const target = parseInt(e.target.dataset.target);
-          if (isNaN(target)) return;
-          const suffix = e.target.dataset.suffix || '';
-          let current = 0;
-          const step = Math.max(1, Math.floor(target / 40));
-          const interval = setInterval(function() {
-            current += step;
-            if (current >= target) { current = target; clearInterval(interval); }
-            e.target.textContent = current + suffix;
-          }, 30);
-        }
-      });
-    }, { threshold: 0.5 });
+<!-- 68 -->
+<div class="s-block reveal" id="s68">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">68</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les demandes de transport</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Logistique gere les demandes de transport et de deplacement. Quand un technicien doit se rendre sur un site eloigne, une demande logistique est creee avec le lieu de depart, la destination, la date, le nombre de passagers et le materiel a transporter.</p>
+    </div>
+  </div>
+</div>
 
-    document.querySelectorAll('.counter').forEach(function(el) { counterObserver.observe(el); });
+<!-- 69 -->
+<div class="s-block reveal" id="s69">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-orange text-black">69</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le suivi des demandes</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque demande logistique a un statut : en attente d'approbation, approuvee, en cours, terminee. Le superviseur peut approuver ou refuser les demandes, assigner un vehicule et un chauffeur. L'historique complet est conserve.</p>
+    </div>
+  </div>
+</div>
 
-    // ===== MAGNETIC BUTTONS =====
-    document.querySelectorAll('.magnetic').forEach(function(btn) {
-      btn.addEventListener('mousemove', function(e) {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = 'translate(' + (x * 0.15) + 'px,' + (y * 0.15) + 'px)';
-      });
-      btn.addEventListener('mouseleave', function() {
-        btn.style.transform = '';
-      });
-    });
+<!-- ===== CHAPITRE : CHARROI ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-purple text-white">LE CHARROI</span></div>
 
-    // ===== HERO "M" COLOR CYCLE =====
-    const heroM = document.getElementById('hero-m');
-    if (heroM) {
-      const colors = ['#FFE600', '#FF6B9D', '#0066FF', '#00D68F', '#FF8A00', '#8B5CF6'];
-      let ci = 0;
-      setInterval(function() { ci = (ci + 1) % colors.length; heroM.style.color = colors[ci]; heroM.style.transition = 'color 0.6s ease'; }, 2000);
-    }
+<!-- 70 -->
+<div class="s-block reveal" id="s70">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">70</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La flotte de vehicules</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Charroi gere l'ensemble des vehicules de service. Le tableau affiche pour chaque vehicule : la marque, le modele, la plaque d'immatriculation, le kilometrage et le statut (disponible, en mission, en maintenance).</p>
+    </div>
+  </div>
+</div>
 
-    // ===== LOGO CLICK EASTER EGG =====
-    let logoClicks = 0;
-    const logoLink = document.getElementById('logo-link');
-    if (logoLink) {
-      logoLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        logoClicks++;
-        if (logoClicks >= 7) {
-          logoClicks = 0;
-          spawnConfetti();
-        }
-      });
-    }
+<!-- 71 -->
+<div class="s-block reveal" id="s71">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-purple text-white">71</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les 6 vehicules de demonstration</h3>
+      <div class="info-box">
+        <p class="text-sm leading-relaxed">6 vehicules sont enregistres : des Toyota Land Cruiser, Hilux, des Ford Ranger et un Mitsubishi Pajero. Ils representent une flotte typique pour les operations au Katanga. Chaque vehicule a un kilometrage et un statut different.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    // ===== KONAMI CODE =====
-    let konamiState = 0;
-    const konamiCode = [38,38,40,40,37,39,37,39,66,65];
-    document.addEventListener('keydown', function(e) {
-      if (e.keyCode === konamiCode[konamiState]) {
-        konamiState++;
-        if (konamiState === konamiCode.length) {
-          konamiState = 0;
-          spawnConfetti();
-          document.body.style.transition = 'filter 1.5s ease';
-          document.body.style.filter = 'hue-rotate(180deg)';
-          setTimeout(function() { document.body.style.filter = ''; }, 3000);
-        }
-      } else { konamiState = 0; }
-    });
+<!-- ===== CHAPITRE : REPORTING ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-pink text-white">LE REPORTING</span></div>
 
-    // ===== CONFETTI =====
-    function spawnConfetti() {
-      const colors = ['#FFE600', '#FF6B9D', '#0066FF', '#00D68F', '#FF8A00', '#8B5CF6'];
-      for (let i = 0; i < 80; i++) {
-        const el = document.createElement('div');
-        el.className = 'confetti';
-        el.style.cssText = 'width:' + (6 + Math.random() * 8) + 'px;height:' + (6 + Math.random() * 8) + 'px;background:' + colors[Math.floor(Math.random() * colors.length)] + ';left:' + (Math.random() * 100) + 'vw;top:-10px;border:1px solid rgba(0,0,0,0.3);';
-        document.body.appendChild(el);
-        const x = (Math.random() - 0.5) * 200;
-        const y = Math.random() * 600 + 300;
-        const r = Math.random() * 720 - 360;
-        const d = Math.random() * 1000 + 500;
-        el.animate([
-          { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
-          { transform: 'translate(' + x + 'px,' + y + 'px) rotate(' + r + 'deg)', opacity: 0 }
-        ], { duration: d, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }).onfinish = function() { el.remove(); };
-      }
-    }
+<!-- 72 -->
+<div class="s-block reveal" id="s72">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">72</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Les graphiques analytiques</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le module Reporting propose des graphiques avances pour analyser l'activite. Vous y trouverez : un graphique des interventions par mois (barres), la repartition par statut (camembert), la performance par technicien, et l'evolution des couts. Tous les graphiques sont interactifs et se mettent a jour avec les donnees reelles.</p>
+    </div>
+  </div>
+</div>
 
-    // ===== CONSOLE EASTER EGG =====
-    console.log('%c AEMI GMAO ', 'background: #FFE600; color: #000; font-size: 24px; font-weight: 900; padding: 10px 20px; border: 3px solid #000;');
-    console.log('%c Developpe par ExplorIA pour Forrest Groupe ', 'background: #0066FF; color: #fff; font-size: 12px; padding: 5px 10px;');
-    console.log('%c Tip: Try the Konami code! (Up Up Down Down Left Right Left Right B A) ', 'color: #FF6B9D; font-size: 11px;');
+<!-- 73 -->
+<div class="s-block reveal" id="s73">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-pink text-white">73</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Exporter les rapports</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Deux options d'export sont disponibles. Le bouton "Export PDF" genere un rapport visuel avec les graphiques et les chiffres cles. Le bouton "Export CSV" telecharge les donnees brutes dans un fichier que vous pouvez ouvrir dans Excel pour faire vos propres analyses.</p>
+    </div>
+  </div>
+</div>
 
-  })();
-  </script>
+<!-- ===== CHAPITRE : VUE TECHNICIEN ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-blue text-white">LA VUE TECHNICIEN MOBILE</span></div>
+
+<!-- 74 -->
+<div class="s-block reveal" id="s74">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">74</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Une experience mobile dediee</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Quand vous vous connectez avec le compte technicien (tech1@aemi.cd), l'application affiche une interface completement differente, optimisee pour un telephone. Pas de menu lateral complexe, pas de tableaux larges. Juste l'essentiel pour travailler sur le terrain.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 75 -->
+<div class="s-block reveal" id="s75">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">75</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La liste des interventions assignees</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le technicien voit uniquement les interventions qui lui sont assignees. Elles sont presentees sous forme de cartes empilees, faciles a parcourir au doigt. Chaque carte affiche le client, le site, le type d'intervention et la priorite avec un code couleur.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 76 -->
+<div class="s-block reveal" id="s76">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">76</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Demarrer une intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le technicien appuie sur une intervention pour l'ouvrir, puis sur "Demarrer" pour passer en mode intervention. Le statut change automatiquement. Le superviseur voit en temps reel que le technicien a commence le travail.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 77 -->
+<div class="s-block reveal" id="s77">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">77</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le mode intervention</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Le mode intervention est un ecran special qui guide le technicien etape par etape. Il affiche les informations de l'intervention (client, site, equipement), puis la checklist a suivre, l'espace pour prendre des photos, et le champ pour la signature du client a la fin.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 78 -->
+<div class="s-block reveal" id="s78">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">78</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La checklist terrain</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Chaque intervention peut avoir une checklist associee. Le technicien coche les etapes au fur et a mesure : verification visuelle, test de demarrage, mesure de tension, remplacement de piece, etc. La checklist garantit que rien n'est oublie et que la procedure est suivie.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 79 -->
+<div class="s-block reveal" id="s79">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">79</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Prendre des photos</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Pendant l'intervention, le technicien peut prendre des photos directement depuis l'application. Ces photos sont jointes au rapport d'intervention et permettent de documenter l'etat de l'equipement avant et apres. Sur mobile, l'application utilise directement l'appareil photo du telephone.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 80 -->
+<div class="s-block reveal" id="s80">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">80</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La signature electronique</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">A la fin de l'intervention, le technicien demande au responsable sur site de signer directement sur l'ecran du telephone avec le doigt. Cette signature est enregistree et jointe au rapport. Elle sert de preuve que le client a bien vu et accepte le travail effectue.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 81 -->
+<div class="s-block reveal" id="s81">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-blue text-white">81</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Terminer et envoyer le rapport</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Une fois la checklist completee, les photos prises et la signature obtenue, le technicien appuie sur "Terminer". Le rapport complet est envoye automatiquement. Le superviseur peut le consulter immediatement depuis son dashboard.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : PARAMETRES ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-gray-800 text-white dark:bg-gray-700">LES PARAMETRES</span></div>
+
+<!-- 82 -->
+<div class="s-block reveal" id="s82">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-gray-800 text-white">82</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La page Parametres</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Dans le menu, tout en bas, vous trouverez "Parametres". Cette page permet de consulter et modifier votre profil utilisateur, de changer le theme (clair ou sombre) et d'ajuster les preferences de notification.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 83 -->
+<div class="s-block reveal" id="s83">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-gray-800 text-white">83</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Le profil utilisateur</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Votre profil affiche votre nom, votre email et votre role (administrateur ou technicien). Vous pouvez modifier votre nom d'affichage et votre photo de profil.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : DONNEES ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-green text-black">LES DONNEES DE DEMONSTRATION</span></div>
+
+<!-- 84 -->
+<div class="s-block reveal" id="s84">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">84</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Ce que contient l'application</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Pour que vous puissiez tester immediatement, nous avons rempli l'application avec des donnees realistes :</p>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <div class="cred-box"><strong>10</strong> clients</div>
+        <div class="cred-box"><strong>19</strong> sites</div>
+        <div class="cred-box"><strong>16</strong> contacts</div>
+        <div class="cred-box"><strong>18</strong> equipements</div>
+        <div class="cred-box"><strong>18</strong> interventions</div>
+        <div class="cred-box"><strong>7</strong> work orders</div>
+        <div class="cred-box"><strong>15</strong> articles en stock</div>
+        <div class="cred-box"><strong>6</strong> vehicules</div>
+        <div class="cred-box"><strong>4</strong> devis</div>
+        <div class="cred-box"><strong>4</strong> factures</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 85 -->
+<div class="s-block reveal" id="s85">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">85</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Des clients inspires du Katanga</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Les clients de demonstration sont inspires du tissu economique du Katanga : des societes minieres, des cimenteries, des brasseries, des hôtels. Chaque client a au moins un site avec une adresse realiste a Lubumbashi, Likasi, Kolwezi ou Kipushi.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 86 -->
+<div class="s-block reveal" id="s86">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">86</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Des equipements techniques realistes</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Les 18 equipements sont des groupes electrogenes de marques connues (Caterpillar, Cummins, FG Wilson, Perkins) avec des puissances allant de 100 a 1500 kVA. Les numeros de serie, compteurs d'heures et dates d'installation sont realistes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 87 -->
+<div class="s-block reveal" id="s87">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-green text-black">87</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Vous pouvez tout modifier</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Toutes les donnees de demonstration sont modifiables. Vous pouvez creer de nouveaux clients, ajouter des equipements, creer des interventions, supprimer ce qui ne vous plait pas. L'application est la pour etre testee sans restriction. N'hesitez pas a la manipuler dans tous les sens.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPITRE : VOTRE RETOUR ===== -->
+<div class="pt-16 pb-8 reveal"><span class="ch bg-neo-yellow text-black">VOTRE RETOUR</span></div>
+
+<!-- 88 -->
+<div class="s-block reveal" id="s88">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">88</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Testez tout, notez tout</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Nous vous invitons a tester chaque module, a creer des interventions, a naviguer entre les pages, a essayer la vue technicien sur votre telephone. Notez tout ce qui vous semble bien et tout ce qui pourrait etre ameliore. Aucune remarque n'est trop petite.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 89 -->
+<div class="s-block reveal" id="s89">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">89</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Ce qui nous interesse</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Quand vous testez, posez-vous ces questions :</p>
+      <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+        <p>&bull; Est-ce que la navigation est claire et intuitive ?</p>
+        <p>&bull; Est-ce que les informations affichees correspondent a vos besoins ?</p>
+        <p>&bull; Est-ce qu'il manque des champs ou des fonctionnalites ?</p>
+        <p>&bull; Est-ce que les etats d'intervention correspondent a votre realite terrain ?</p>
+        <p>&bull; Est-ce que la vue mobile technicien est pratique ?</p>
+        <p>&bull; Est-ce que les rapports et exports sont utiles ?</p>
+        <p>&bull; Qu'est-ce qui devrait etre change ou ajoute en priorite ?</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 90 -->
+<div class="s-block reveal" id="s90">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">90</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">La suite depend de vous</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Cette version 1.0 est un point de depart. A partir de vos retours, nous allons ajuster, corriger et enrichir l'application. Chaque amelioration sera deployee automatiquement, vous n'aurez rien a installer. L'objectif final est une application qui correspond parfaitement a la facon dont vos equipes travaillent au quotidien.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 91 -->
+<div class="s-block reveal" id="s91">
+  <div class="flex gap-4 items-start">
+    <div class="sn bg-neo-yellow text-black">91</div>
+    <div>
+      <h3 class="font-display font-bold text-xl mb-2">Merci Clement</h3>
+      <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Merci de prendre le temps de tester cette application. Votre regard sur ce que nous avons construit est ce qui nous permettra d'en faire un outil vraiment utile pour Forrest Groupe. Nous restons disponibles pour toute question.</p>
+      <p class="text-gray-500 text-sm mt-3 font-mono">— L'equipe ExplorIA</p>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="py-16 text-center reveal">
+  <a href="https://aemi-gmao.vercel.app" target="_blank" class="inline-flex items-center gap-3 bg-neo-yellow nb ns neo-btn px-10 py-5 font-display font-bold text-lg text-black">
+    Ouvrir l'application AEMI &rarr;
+  </a>
+  <div class="mt-6 space-y-1">
+    <p class="text-sm font-mono text-gray-400">admin@aemi.cd &mdash; aemi2026</p>
+    <p class="text-sm font-mono text-gray-400">tech1@aemi.cd &mdash; aemi2026</p>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<div class="section-divider"></div>
+<footer class="bg-gray-900 dark:bg-black text-white">
+  <div class="max-w-4xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 bg-neo-yellow nb flex items-center justify-center font-display font-black text-sm">A</div>
+      <span class="font-display font-bold">ExplorIA <span class="text-neo-pink">&times;</span> Forrest Groupe</span>
+    </div>
+    <p class="text-gray-600 text-xs font-mono">AEMI GMAO v1.0 &mdash; Fevrier 2026</p>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-neo-yellow nb ns neo-btn flex items-center justify-center opacity-0 pointer-events-none transition-all" aria-label="Haut">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  'use strict';
+  window.toggleDark=function(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark'))};
+  if(localStorage.getItem('dark')==='true'||(!localStorage.getItem('dark')&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');
+
+  var p=document.getElementById('progress'),b=document.getElementById('btt'),n=document.getElementById('navbar');
+  window.addEventListener('scroll',function(){
+    var s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+    p.style.width=(s/h*100)+'%';
+    b.style.opacity=s>500?'1':'0';b.style.pointerEvents=s>500?'auto':'none';
+    if(s>60){n.classList.add('bg-white/90','dark:bg-gray-900/90','backdrop-blur-lg','shadow-lg')}
+    else{n.classList.remove('bg-white/90','dark:bg-gray-900/90','backdrop-blur-lg','shadow-lg')}
+  },{passive:true});
+
+  var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('v')})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+  // Easter eggs
+  var lc=0;document.getElementById('logo-link').addEventListener('click',function(e){e.preventDefault();lc++;if(lc>=7){lc=0;boom()}});
+  var ks=0,kc=[38,38,40,40,37,39,37,39,66,65];
+  document.addEventListener('keydown',function(e){if(e.keyCode===kc[ks]){ks++;if(ks===kc.length){ks=0;boom();document.body.style.transition='filter 1.5s';document.body.style.filter='hue-rotate(180deg)';setTimeout(function(){document.body.style.filter=''},3000)}}else ks=0});
+  function boom(){var c=['#FFE600','#FF6B9D','#0066FF','#00D68F','#FF8A00','#8B5CF6'];for(var i=0;i<60;i++){var d=document.createElement('div');d.className='confetti';d.style.cssText='width:'+(6+Math.random()*8)+'px;height:'+(6+Math.random()*8)+'px;background:'+c[~~(Math.random()*c.length)]+';left:'+Math.random()*100+'vw;top:-10px;border:1px solid rgba(0,0,0,.3)';document.body.appendChild(d);var x=(Math.random()-.5)*200,y=Math.random()*500+300,r=Math.random()*720-360;d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+x+'px,'+y+'px) rotate('+r+'deg)',opacity:0}],{duration:Math.random()*800+400,easing:'ease-out'}).onfinish=function(){this.effect.target.remove()}}}
+  console.log('%c AEMI GMAO ','background:#FFE600;color:#000;font-size:20px;font-weight:900;padding:8px 16px;border:3px solid #000');
+  console.log('%c Guide par ExplorIA pour Forrest Groupe ','background:#0066FF;color:#fff;font-size:11px;padding:4px 8px');
+})();
+</script>
 </body>
 </html>
