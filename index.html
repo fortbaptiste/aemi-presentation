@@ -94,6 +94,7 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
 .mobile-menu.open { transform: translateX(0); }
 .img-frame { border: 3px solid #1a1a1a; box-shadow: 6px 6px 0px 0px rgba(26,26,26,1); overflow: hidden; }
 .img-frame img { width: 100%; height: auto; display: block; }
+.step-connector { width: 2px; height: 24px; background: #1a1a1a; margin: 0 auto; }
 </style>
 </head>
 <body class="bg-neo-white text-neo-black">
@@ -111,8 +112,10 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
       <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
         <a href="#installation" class="hover:text-neo-blue transition-colors">Installation</a>
         <a href="#connexion" class="hover:text-neo-blue transition-colors">Connexion</a>
-        <a href="#modules" class="hover:text-neo-blue transition-colors">Modules</a>
+        <a href="#securite" class="hover:text-neo-blue transition-colors">Sécurité</a>
+        <a href="#creer-intervention" class="hover:text-neo-blue transition-colors">Interventions</a>
         <a href="#technicien" class="hover:text-neo-blue transition-colors">Technicien</a>
+        <a href="#modules" class="hover:text-neo-blue transition-colors">Modules</a>
         <a href="#donnees" class="hover:text-neo-blue transition-colors">Données</a>
         <a href="https://aemi-gmao.vercel.app" target="_blank" class="neo-btn bg-neo-blue text-white px-4 py-1.5 text-sm font-bold">Ouvrir l'App</a>
       </div>
@@ -126,8 +129,10 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
   <button id="mobile-close" class="self-end neo-btn bg-neo-red text-white px-3 py-1 font-bold text-sm mb-4">Fermer</button>
   <a href="#installation" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Installation</a>
   <a href="#connexion" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Connexion</a>
-  <a href="#modules" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Modules</a>
+  <a href="#securite" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Sécurité</a>
+  <a href="#creer-intervention" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Interventions</a>
   <a href="#technicien" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Technicien</a>
+  <a href="#modules" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Modules</a>
   <a href="#donnees" class="text-lg font-bold hover:text-neo-blue transition-colors mobile-link">Données</a>
   <a href="https://aemi-gmao.vercel.app" target="_blank" class="neo-btn bg-neo-blue text-white px-4 py-2 font-bold text-center mt-4">Ouvrir l'App</a>
 </div>
@@ -138,20 +143,20 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
   <div class="ticker marquee">
     <span class="mx-8 text-sm font-mono">AEMI GMAO</span>
     <span class="mx-8 text-sm font-mono text-neo-yellow">EXPLORIA &times; FORREST GROUPE</span>
-    <span class="mx-8 text-sm font-mono">GUIDE COMPLET</span>
+    <span class="mx-8 text-sm font-mono">50 SECTIONS</span>
     <span class="mx-8 text-sm font-mono text-neo-green">12 MODULES</span>
     <span class="mx-8 text-sm font-mono">KATANGA &bull; RDC</span>
     <span class="mx-8 text-sm font-mono text-neo-orange">PWA INSTALLABLE</span>
     <span class="mx-8 text-sm font-mono">MAINTENANCE INDUSTRIELLE</span>
-    <span class="mx-8 text-sm font-mono text-neo-pink">VERSION 1.0</span>
+    <span class="mx-8 text-sm font-mono text-neo-pink">SÉCURITÉ &bull; RLS</span>
     <span class="mx-8 text-sm font-mono">AEMI GMAO</span>
     <span class="mx-8 text-sm font-mono text-neo-yellow">EXPLORIA &times; FORREST GROUPE</span>
-    <span class="mx-8 text-sm font-mono">GUIDE COMPLET</span>
+    <span class="mx-8 text-sm font-mono">50 SECTIONS</span>
     <span class="mx-8 text-sm font-mono text-neo-green">12 MODULES</span>
     <span class="mx-8 text-sm font-mono">KATANGA &bull; RDC</span>
     <span class="mx-8 text-sm font-mono text-neo-orange">PWA INSTALLABLE</span>
     <span class="mx-8 text-sm font-mono">MAINTENANCE INDUSTRIELLE</span>
-    <span class="mx-8 text-sm font-mono text-neo-pink">VERSION 1.0</span>
+    <span class="mx-8 text-sm font-mono text-neo-pink">SÉCURITÉ &bull; RLS</span>
   </div>
 </div>
 
@@ -168,8 +173,7 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
     <div class="animate-on-scroll from-bottom">
       <div class="section-number text-neo-blue mb-4 font-bold">Section 01 — Présentation</div>
       <h1 class="font-grotesk text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight mb-6">
-        AEMI<br>
-        <span class="gradient-bg bg-clip-text text-transparent">GMAO</span>
+        AEMI<br><span class="gradient-bg bg-clip-text text-transparent">GMAO</span>
       </h1>
     </div>
     <div class="animate-on-scroll from-bottom stagger-2">
@@ -180,13 +184,11 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
     </div>
     <div class="animate-on-scroll from-bottom stagger-3 flex flex-wrap justify-center gap-4 mb-12">
       <div class="neo-card-sm bg-neo-yellow px-5 py-2 font-bold font-mono text-sm">12 MODULES</div>
-      <div class="neo-card-sm bg-neo-green px-5 py-2 font-bold font-mono text-sm">VERSION 1.0</div>
+      <div class="neo-card-sm bg-neo-green px-5 py-2 font-bold font-mono text-sm">50 SECTIONS</div>
       <div class="neo-card-sm bg-neo-blue text-white px-5 py-2 font-bold font-mono text-sm">EXPLORIA</div>
     </div>
     <div class="animate-on-scroll from-bottom stagger-4">
-      <a href="#bonjour" class="neo-btn bg-neo-black text-white px-8 py-4 inline-block font-bold text-lg font-grotesk">
-        Découvrir l'application &darr;
-      </a>
+      <a href="#bonjour" class="neo-btn bg-neo-black text-white px-8 py-4 inline-block font-bold text-lg font-grotesk">Découvrir l'application &darr;</a>
     </div>
   </div>
 </section>
@@ -206,109 +208,138 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
           Voici la <strong>première version</strong> de l'application AEMI GMAO. Elle a été construite sur mesure par ExplorIA pour les opérations de Forrest Groupe au Katanga.
         </p>
         <p class="text-lg leading-relaxed mb-6">
-          L'objectif de cette version est simple : que vous puissiez <strong>tout tester</strong> et nous faire un <strong>retour détaillé</strong>. Chaque remarque, même petite, nous permettra d'ajuster l'application à vos besoins réels.
+          L'objectif de cette version est simple : que vous puissiez <strong>tout tester</strong> et nous faire un <strong>retour détaillé</strong>. Chaque remarque nous permettra d'ajuster l'application à vos besoins réels.
         </p>
         <p class="text-lg leading-relaxed">
-          Ce guide vous accompagne à travers chaque écran. Prenez le temps de tout explorer, et dites-nous ce qui fonctionne bien et ce qui doit être amélioré.
+          Ce guide de <strong>50 sections</strong> vous accompagne à travers chaque fonctionnalité. Prenez le temps de tout explorer.
         </p>
-      </div>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-3 mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <div class="neo-card-sm bg-neo-blue text-white p-4 text-center">
-        <div class="font-mono font-bold text-2xl">12</div>
-        <div class="text-xs mt-1 opacity-80">Modules</div>
-      </div>
-      <div class="neo-card-sm bg-neo-orange text-white p-4 text-center">
-        <div class="font-mono font-bold text-2xl">6</div>
-        <div class="text-xs mt-1 opacity-80">Clients démo</div>
-      </div>
-      <div class="neo-card-sm bg-neo-green text-white p-4 text-center">
-        <div class="font-mono font-bold text-2xl">11</div>
-        <div class="text-xs mt-1 opacity-80">Équipements</div>
-      </div>
-      <div class="neo-card-sm bg-neo-purple text-white p-4 text-center">
-        <div class="font-mono font-bold text-2xl">13</div>
-        <div class="text-xs mt-1 opacity-80">Interventions</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 03 — INSTALLATION -->
+<!-- SECTION 03 — C'EST QUOI AEMI ? -->
 <!-- ============================================ -->
-<section id="installation" class="py-20 px-4">
+<section class="py-20 px-4">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-green mb-4 font-bold">Section 03 — Installation</div>
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 03 — Définition</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">C'est quoi AEMI GMAO ?</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Une application web qui gère tout le cycle de maintenance de vos groupes électrogènes.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="animate-on-scroll pop stagger-1 neo-card-sm bg-neo-blue text-white p-4 text-center">
+        <div class="font-mono font-bold text-2xl">12</div><div class="text-xs mt-1 opacity-80">Modules</div>
+      </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card-sm bg-neo-orange text-white p-4 text-center">
+        <div class="font-mono font-bold text-2xl">6</div><div class="text-xs mt-1 opacity-80">Clients démo</div>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card-sm bg-neo-green text-white p-4 text-center">
+        <div class="font-mono font-bold text-2xl">11</div><div class="text-xs mt-1 opacity-80">Équipements</div>
+      </div>
+      <div class="animate-on-scroll pop stagger-4 neo-card-sm bg-neo-purple text-white p-4 text-center">
+        <div class="font-mono font-bold text-2xl">13</div><div class="text-xs mt-1 opacity-80">Interventions</div>
+      </div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-5 mt-8">
+      <div class="neo-card bg-white p-6">
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+          <div><strong>Côté admin :</strong> Dashboard, interventions, clients, équipements, facturation, planning, reporting.</div>
+          <div><strong>Côté terrain :</strong> Vue mobile pour les techniciens avec checklist, photos, signature, GPS.</div>
+          <div><strong>Côté données :</strong> Supabase (PostgreSQL), stockage cloud, temps réel.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 04 — INSTALLATION PWA -->
+<!-- ============================================ -->
+<section id="installation" class="py-20 px-4 bg-neo-gray">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 04 — Installation</div>
       <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Installer l'application.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        AEMI est une PWA. Vous pouvez l'installer sur votre téléphone ou votre ordinateur comme une application native.
-      </p>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">AEMI est une PWA. Installez-la comme une application native sur téléphone ou ordinateur.</p>
     </div>
     <div class="animate-on-scroll from-bottom stagger-1 mb-8">
-      <div class="neo-card bg-white p-6 sm:p-8 text-center">
+      <div class="neo-card bg-white p-6 text-center">
         <p class="text-lg font-bold mb-4">L'adresse de l'application :</p>
         <div class="bg-neo-gray p-4 border-2 border-neo-black inline-block">
           <a href="https://aemi-gmao.vercel.app" target="_blank" class="text-neo-blue font-mono font-bold text-lg">https://aemi-gmao.vercel.app</a>
         </div>
       </div>
     </div>
+    <div class="animate-on-scroll scale-up stagger-2">
+      <div class="img-frame max-w-2xl mx-auto">
+        <img src="img/pwa-install.png" alt="AEMI installée sur le bureau" loading="lazy">
+      </div>
+      <p class="text-center text-sm text-gray-400 mt-3 font-mono">L'icône AEMI GMAO sur le bureau après installation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 05 — PLATEFORMES -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 05 — Plateformes</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Chaque plateforme.</h2>
+    </div>
     <div class="grid md:grid-cols-3 gap-6">
       <div class="animate-on-scroll from-bottom stagger-1">
         <div class="neo-card bg-white p-8 h-full">
           <div class="neo-card-sm bg-neo-green text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">ANDROID</div>
           <h3 class="font-bold font-grotesk text-lg mb-3">Chrome</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Ouvrez le lien dans Chrome. Appuyez sur les trois points en haut à droite, puis sélectionnez <strong>« Installer l'application »</strong>. L'icône AEMI apparaît sur votre écran d'accueil.
-          </p>
+          <p class="text-gray-600 text-sm">Ouvrez le lien &rarr; trois points en haut à droite &rarr; <strong>« Installer l'application »</strong>.</p>
         </div>
       </div>
       <div class="animate-on-scroll from-bottom stagger-2">
         <div class="neo-card bg-white p-8 h-full">
           <div class="neo-card-sm bg-neo-blue text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">iOS</div>
           <h3 class="font-bold font-grotesk text-lg mb-3">Safari</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Ouvrez le lien dans <strong>Safari</strong> (pas Chrome). Appuyez sur le bouton de partage, puis <strong>« Sur l'écran d'accueil »</strong>. L'application se lance ensuite en plein écran.
-          </p>
+          <p class="text-gray-600 text-sm">Ouvrez dans <strong>Safari</strong> &rarr; bouton partage &rarr; <strong>« Sur l'écran d'accueil »</strong>.</p>
         </div>
       </div>
       <div class="animate-on-scroll from-bottom stagger-3">
         <div class="neo-card bg-white p-8 h-full">
           <div class="neo-card-sm bg-neo-purple text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">ORDINATEUR</div>
           <h3 class="font-bold font-grotesk text-lg mb-3">Chrome / Edge</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Ouvrez le lien dans votre navigateur. Cliquez sur l'icône d'installation dans la barre d'adresse, ou utilisez l'application directement dans le navigateur.
-          </p>
+          <p class="text-gray-600 text-sm">Icône d'installation dans la barre d'adresse, ou utilisez directement dans le navigateur.</p>
         </div>
-      </div>
-    </div>
-    <!-- Screenshot PWA -->
-    <div class="animate-on-scroll scale-up stagger-4 mt-10">
-      <div class="img-frame max-w-2xl mx-auto">
-        <img src="img/pwa-install.png" alt="AEMI installée sur le bureau" loading="lazy">
-      </div>
-      <p class="text-center text-sm text-gray-400 mt-3 font-mono">L'icône AEMI GMAO sur le bureau après installation</p>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-4 mt-6">
-      <div class="neo-card-sm bg-neo-yellow p-4 text-sm">
-        <strong>Mises à jour automatiques :</strong> Vous n'avez rien à faire. Chaque amélioration est disponible immédiatement en rechargeant l'application.
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 04 — CONNEXION -->
+<!-- SECTION 06 — MISES À JOUR -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-yellow">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 06 — Mises à jour</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-6">Automatiques.</h2>
+      <div class="neo-card bg-white p-8">
+        <p class="text-lg">Vous n'avez <strong>rien à faire</strong>. Chaque amélioration est disponible en rechargeant l'application. Le Service Worker gère le cache automatiquement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 07 — CONNEXION -->
 <!-- ============================================ -->
 <section id="connexion" class="py-20 px-4 bg-neo-blue text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-yellow mb-4 font-bold">Section 04 — Connexion</div>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 07 — Connexion</div>
       <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Se connecter.</h2>
-      <p class="text-lg text-blue-200 mb-12 max-w-3xl">
-        Deux comptes de démonstration sont disponibles. L'un donne accès à tout, l'autre montre la vue terrain du technicien.
-      </p>
+      <p class="text-lg text-blue-200 mb-12 max-w-3xl">Deux comptes de démonstration. L'un donne accès à tout, l'autre montre la vue terrain.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
       <div class="animate-on-scroll from-left stagger-1">
@@ -320,9 +351,7 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
             <div><span class="text-gray-500">Mot de passe :</span> <strong>aemi2024</strong></div>
             <div><span class="text-gray-500">Nom :</span> Clément Kabongo</div>
           </div>
-          <p class="text-sm text-gray-500 mt-4">
-            Ce compte donne accès au dashboard, aux interventions, aux clients, aux équipements, à la facturation, et à tous les autres modules.
-          </p>
+          <p class="text-sm text-gray-500 mt-4">Dashboard, interventions, clients, équipements, facturation, et tous les modules.</p>
         </div>
       </div>
       <div class="animate-on-scroll from-right stagger-2">
@@ -334,62 +363,80 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
             <div><span class="text-gray-500">Mot de passe :</span> <strong>aemi2024</strong></div>
             <div><span class="text-gray-500">Nom :</span> Patrick Ilunga</div>
           </div>
-          <p class="text-sm text-gray-500 mt-4">
-            Ce compte affiche une vue mobile simplifiée avec uniquement les interventions assignées au technicien.
-          </p>
+          <p class="text-sm text-gray-500 mt-4">Vue mobile simplifiée avec uniquement les interventions assignées.</p>
         </div>
       </div>
     </div>
-    <!-- Screenshot Login -->
     <div class="animate-on-scroll scale-up stagger-3 mt-10">
       <div class="img-frame max-w-sm mx-auto">
         <img src="img/login-page.png" alt="Page de connexion AEMI" loading="lazy">
       </div>
       <p class="text-center text-sm text-blue-200 mt-3 font-mono">Page de connexion avec accès rapide</p>
     </div>
-    <div class="animate-on-scroll from-bottom stagger-4 mt-8 text-center">
-      <div class="neo-card bg-white/10 p-6 inline-block backdrop-blur-sm">
-        <p class="font-mono text-sm text-neo-yellow">
-          Les boutons « Accès Rapide » en bas de la page de connexion permettent de se connecter en un clic.
-        </p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 08 — ACCÈS RAPIDE -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-orange mb-4 font-bold">Section 08 — Accès rapide</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Un clic pour se connecter.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-2">
+      <div class="neo-card bg-white p-8">
+        <p class="text-lg mb-6">En bas de la page de connexion, des <strong>boutons d'accès rapide</strong> permettent de se connecter directement en tant qu'admin ou technicien. Pas besoin de taper l'email et le mot de passe.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="neo-btn bg-neo-blue text-white px-6 py-3 font-bold">Admin — Clément</div>
+          <div class="neo-btn bg-neo-green text-white px-6 py-3 font-bold">Tech — Patrick</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 05 — DASHBOARD -->
+<!-- SECTION 09 — DASHBOARD -->
 <!-- ============================================ -->
-<section id="dashboard" class="py-20 px-4">
+<section id="dashboard" class="py-20 px-4 bg-neo-gray">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-blue mb-4 font-bold">Section 05 — Dashboard</div>
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 09 — Dashboard</div>
       <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Le tableau de bord.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Après connexion, vous arrivez sur le dashboard. Il résume l'état de vos opérations en un coup d'œil.
-      </p>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Après connexion admin, vous arrivez ici. Il résume tout en un coup d'œil.</p>
     </div>
-    <!-- Screenshot Dashboard -->
     <div class="animate-on-scroll scale-up">
-      <div class="img-frame">
-        <img src="img/dashboard.png" alt="Dashboard AEMI GMAO" loading="lazy">
-      </div>
+      <div class="img-frame"><img src="img/dashboard.png" alt="Dashboard AEMI GMAO" loading="lazy"></div>
     </div>
-    <div class="animate-on-scroll from-bottom stagger-2 mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="neo-card-sm bg-white p-4">
-        <div class="font-bold text-sm mb-1">KPI en haut</div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 10 — KPI -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 10 — KPI</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Ce que montre le dashboard.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-white p-5">
+        <div class="font-bold text-sm mb-2">KPI en haut</div>
         <p class="text-xs text-gray-500">Total interventions, montant facturé, taux de complétion, alertes actives.</p>
       </div>
-      <div class="neo-card-sm bg-white p-4">
-        <div class="font-bold text-sm mb-1">Carte interactive</div>
-        <p class="text-xs text-gray-500">Localisation de tous vos équipements au Katanga avec indicateurs de statut.</p>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-white p-5">
+        <div class="font-bold text-sm mb-2">Carte interactive</div>
+        <p class="text-xs text-gray-500">Localisation des équipements au Katanga avec indicateurs de statut.</p>
       </div>
-      <div class="neo-card-sm bg-white p-4">
-        <div class="font-bold text-sm mb-1">État du parc</div>
-        <p class="text-xs text-gray-500">Nombre d'équipements opérationnels, en panne, en entretien, hors service.</p>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-white p-5">
+        <div class="font-bold text-sm mb-2">État du parc</div>
+        <p class="text-xs text-gray-500">Équipements opérationnels, en panne, en entretien, hors service.</p>
       </div>
-      <div class="neo-card-sm bg-white p-4">
-        <div class="font-bold text-sm mb-1">Actions rapides</div>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-white p-5">
+        <div class="font-bold text-sm mb-2">Actions rapides</div>
         <p class="text-xs text-gray-500">Créer une intervention, ajouter un client, consulter le planning.</p>
       </div>
     </div>
@@ -397,248 +444,109 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 06 — LES 12 MODULES -->
+<!-- SECTION 11 — CARTE -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-dark text-white">
+  <div class="max-w-4xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 11 — Carte</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Carte interactive Leaflet.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-2">
+      <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px #06d6a0;">
+        <p class="text-sm mb-4">La carte affiche tous vos sites et équipements avec leurs coordonnées GPS. Chaque marqueur est coloré selon le statut :</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-green inline-block border border-neo-black"></span> Opérationnel</div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-red inline-block border border-neo-black"></span> En panne</div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-yellow inline-block border border-neo-black"></span> Maintenance</div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-gray-400 inline-block border border-neo-black"></span> Hors service</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 12 — LES 12 MODULES -->
 <!-- ============================================ -->
 <section id="modules" class="py-20 px-4 bg-neo-black text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-yellow mb-4 font-bold">Section 06 — Les modules</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">12 modules.</h2>
-      <p class="text-lg text-gray-400 mb-12 max-w-3xl">
-        L'application couvre tout le cycle de maintenance industrielle. Voici chaque module.
-      </p>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 12 — Les modules</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">12 modules.</h2>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="animate-on-scroll pop stagger-1 neo-card bg-neo-blue p-6" style="box-shadow: 6px 6px 0px 0px #ffd166;">
-        <div class="text-2xl mb-3">📊</div>
-        <h3 class="font-bold mb-2">Dashboard</h3>
-        <p class="text-blue-200 text-sm">Vue d'ensemble avec KPI, carte, état du parc et alertes.</p>
+        <h3 class="font-bold mb-2">Dashboard</h3><p class="text-blue-200 text-sm">KPI, carte, état du parc, alertes.</p>
       </div>
       <div class="animate-on-scroll pop stagger-2 neo-card bg-neo-orange p-6" style="box-shadow: 6px 6px 0px 0px #06d6a0;">
-        <div class="text-2xl mb-3">🔧</div>
-        <h3 class="font-bold mb-2">Interventions</h3>
-        <p class="text-orange-100 text-sm">Cycle complet : création, assignation, exécution, facturation.</p>
+        <h3 class="font-bold mb-2">Interventions</h3><p class="text-orange-100 text-sm">Création, assignation, exécution, facturation.</p>
       </div>
       <div class="animate-on-scroll pop stagger-3 neo-card bg-neo-green p-6" style="box-shadow: 6px 6px 0px 0px #2857a4;">
-        <div class="text-2xl mb-3">⚡</div>
-        <h3 class="font-bold mb-2">Équipements GE</h3>
-        <p class="text-green-100 text-sm">Fiche technique, compteur horaire, composants, historique.</p>
+        <h3 class="font-bold mb-2">Équipements GE</h3><p class="text-green-100 text-sm">Fiche technique, compteur horaire, composants.</p>
       </div>
       <div class="animate-on-scroll pop stagger-4 neo-card bg-neo-purple p-6" style="box-shadow: 6px 6px 0px 0px #ff6b35;">
-        <div class="text-2xl mb-3">📅</div>
-        <h3 class="font-bold mb-2">Planning</h3>
-        <p class="text-purple-100 text-sm">Calendrier et tableau Kanban avec drag-and-drop.</p>
+        <h3 class="font-bold mb-2">Planning</h3><p class="text-purple-100 text-sm">Calendrier et Kanban avec drag-and-drop.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-5 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">👥</div>
-        <h3 class="font-bold mb-2">Clients</h3>
-        <p class="text-gray-300 text-sm">Fiche client, contacts, sites, équipements associés.</p>
+      <div class="animate-on-scroll pop stagger-5 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Clients</h3><p class="text-gray-300 text-sm">Fiche client, contacts, sites, équipements.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-6 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">🗺️</div>
-        <h3 class="font-bold mb-2">Carte</h3>
-        <p class="text-gray-300 text-sm">Carte Leaflet avec localisation des sites et équipements.</p>
+      <div class="animate-on-scroll pop stagger-6 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Carte</h3><p class="text-gray-300 text-sm">Leaflet avec localisation des sites.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-1 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">💰</div>
-        <h3 class="font-bold mb-2">Facturation</h3>
-        <p class="text-gray-300 text-sm">Devis, factures, suivi des paiements, export PDF.</p>
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Facturation</h3><p class="text-gray-300 text-sm">Devis, factures, paiements, export PDF.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-2 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">🏭</div>
-        <h3 class="font-bold mb-2">Atelier</h3>
-        <p class="text-gray-300 text-sm">Ordres de travail, pièces détachées, planification atelier.</p>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Atelier</h3><p class="text-gray-300 text-sm">Ordres de travail, pièces, planification.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-3 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">📦</div>
-        <h3 class="font-bold mb-2">Logistique</h3>
-        <p class="text-gray-300 text-sm">Magasin, demandes de matériel, gestion du stock.</p>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Logistique</h3><p class="text-gray-300 text-sm">Magasin, demandes de matériel, stock.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-4 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">🚛</div>
-        <h3 class="font-bold mb-2">Charroi</h3>
-        <p class="text-gray-300 text-sm">Flotte de véhicules, demandes de transport, suivi.</p>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Charroi</h3><p class="text-gray-300 text-sm">Flotte véhicules, demandes de transport.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-5 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">👷</div>
-        <h3 class="font-bold mb-2">Équipes</h3>
-        <p class="text-gray-300 text-sm">Techniciens, superviseurs, chauffeurs, compétences.</p>
+      <div class="animate-on-scroll pop stagger-5 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Équipes</h3><p class="text-gray-300 text-sm">Techniciens, superviseurs, compétences.</p>
       </div>
-      <div class="animate-on-scroll pop stagger-6 neo-card bg-white/10 p-6 backdrop-blur-sm" style="box-shadow: 6px 6px 0px 0px rgba(255,255,255,0.2);">
-        <div class="text-2xl mb-3">📈</div>
-        <h3 class="font-bold mb-2">Reporting</h3>
-        <p class="text-gray-300 text-sm">Graphiques, tendances, taux de disponibilité, analyses.</p>
+      <div class="animate-on-scroll pop stagger-6 neo-card bg-white/10 p-6 backdrop-blur-sm">
+        <h3 class="font-bold mb-2">Reporting</h3><p class="text-gray-300 text-sm">Graphiques, tendances, analyses.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 07 — INTERVENTIONS -->
+<!-- SECTION 13 — SÉCURITÉ : AUTHENTIFICATION -->
 <!-- ============================================ -->
-<section class="py-20 px-4">
+<section id="securite" class="py-20 px-4 bg-neo-red text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-orange mb-4 font-bold">Section 07 — Interventions</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Le cycle de vie.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Chaque intervention suit un parcours précis, de la création jusqu'à la facturation.
-      </p>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-1">
-      <div class="neo-card bg-white p-8">
-        <h3 class="font-grotesk font-bold text-lg mb-6">Les 11 étapes d'une intervention</h3>
-        <div class="flex flex-wrap gap-3 mb-8">
-          <div class="neo-card-sm bg-neo-gray px-3 py-2 text-xs font-bold">Créée</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-yellow px-3 py-2 text-xs font-bold">Planifiée</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-blue text-white px-3 py-2 text-xs font-bold">Assignée</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-purple text-white px-3 py-2 text-xs font-bold">En route</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-orange text-white px-3 py-2 text-xs font-bold">Sur site</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-pink text-white px-3 py-2 text-xs font-bold">En cours</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-red text-white px-3 py-2 text-xs font-bold">En attente</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-green text-white px-3 py-2 text-xs font-bold">Terminée</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-blue text-white px-3 py-2 text-xs font-bold">Validée</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-purple text-white px-3 py-2 text-xs font-bold">À facturer</div>
-          <span class="text-gray-300 self-center">&rarr;</span>
-          <div class="neo-card-sm bg-neo-black text-white px-3 py-2 text-xs font-bold">Facturée</div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 class="font-bold mb-3">Types d'intervention</h4>
-            <div class="space-y-2 text-sm text-gray-600">
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-blue inline-block"></span> Maintenance préventive (250h, 500h)</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-orange inline-block"></span> Réparation corrective</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-green inline-block"></span> Installation</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-purple inline-block"></span> Diagnostic</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-red inline-block"></span> Intervention d'urgence</div>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-bold mb-3">Niveaux de priorité</h4>
-            <div class="space-y-2 text-sm text-gray-600">
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-gray-300 inline-block"></span> Basse</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-yellow inline-block"></span> Normale</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-orange inline-block"></span> Haute</div>
-              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-red inline-block"></span> Urgente</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================ -->
-<!-- SECTION 08 — ÉQUIPEMENTS GE -->
-<!-- ============================================ -->
-<section class="py-20 px-4 bg-neo-gray">
-  <div class="max-w-5xl mx-auto">
-    <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-green mb-4 font-bold">Section 08 — Équipements</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Les groupes électrogènes.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Chaque groupe électrogène a sa fiche complète : marque, modèle, puissance, compteur horaire, composants, et historique de maintenance.
-      </p>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-1">
-      <div class="neo-card bg-white p-6 overflow-x-auto">
-        <h3 class="font-grotesk font-bold text-lg mb-4">Quelques équipements de démonstration</h3>
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="bg-neo-gray">
-              <th class="p-3 text-left border-b-2 border-neo-black">Réf.</th>
-              <th class="p-3 text-left border-b-2 border-neo-black">Marque / Modèle</th>
-              <th class="p-3 text-center border-b-2 border-neo-black">Puissance</th>
-              <th class="p-3 text-center border-b-2 border-neo-black">Heures</th>
-              <th class="p-3 text-center border-b-2 border-neo-black">Statut</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-gray-200">
-              <td class="p-3 font-mono text-xs">BK-GE-001</td>
-              <td class="p-3 font-bold">Caterpillar C15</td>
-              <td class="p-3 text-center">500 kVA</td>
-              <td class="p-3 text-center font-mono">4 750h</td>
-              <td class="p-3 text-center"><span class="bg-neo-yellow text-neo-black px-2 py-0.5 text-xs font-bold">Maintenance</span></td>
-            </tr>
-            <tr class="border-b border-gray-200">
-              <td class="p-3 font-mono text-xs">AMB-GE-01</td>
-              <td class="p-3 font-bold">Perkins 2000 Series</td>
-              <td class="p-3 text-center">350 kVA</td>
-              <td class="p-3 text-center font-mono">2 340h</td>
-              <td class="p-3 text-center"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Opérationnel</span></td>
-            </tr>
-            <tr class="border-b border-gray-200">
-              <td class="p-3 font-mono text-xs">MCI-ALPHA-001</td>
-              <td class="p-3 font-bold">Caterpillar C18</td>
-              <td class="p-3 text-center">750 kVA</td>
-              <td class="p-3 text-center font-mono">5 680h</td>
-              <td class="p-3 text-center"><span class="bg-neo-red text-white px-2 py-0.5 text-xs font-bold">En panne</span></td>
-            </tr>
-            <tr class="border-b border-gray-200">
-              <td class="p-3 font-mono text-xs">RAFPET-001</td>
-              <td class="p-3 font-bold">MTU 16V4000 DS</td>
-              <td class="p-3 text-center">2 000 kVA</td>
-              <td class="p-3 text-center font-mono">3 500h</td>
-              <td class="p-3 text-center"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Opérationnel</span></td>
-            </tr>
-            <tr>
-              <td class="p-3 font-mono text-xs">MCI-ALPHA-002</td>
-              <td class="p-3 font-bold">Cummins KTA50</td>
-              <td class="p-3 text-center">1 500 kVA</td>
-              <td class="p-3 text-center font-mono">2 800h</td>
-              <td class="p-3 text-center"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Opérationnel</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-2 mt-6">
-      <div class="neo-card-sm bg-neo-yellow p-4 text-sm">
-        <strong>Compteur horaire :</strong> Chaque équipement a un seuil de maintenance (ex : 250h, 500h). Quand le compteur approche du seuil, une alerte est générée automatiquement.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================ -->
-<!-- SECTION 09 — PLANNING -->
-<!-- ============================================ -->
-<section class="py-20 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-purple mb-4 font-bold">Section 09 — Planning</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Planifier les interventions.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Deux vues disponibles pour organiser le travail de l'équipe.
-      </p>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 13 — Sécurité</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Authentification.</h2>
+      <p class="text-lg text-red-100 mb-12 max-w-3xl">Chaque utilisateur doit se connecter avec un email et un mot de passe. Sans connexion, aucun accès.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
       <div class="animate-on-scroll from-left stagger-1">
-        <div class="neo-card bg-white p-8 h-full">
-          <div class="neo-card-sm bg-neo-purple text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">VUE 1</div>
-          <h3 class="font-bold font-grotesk text-lg mb-3">Calendrier</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Vue mensuelle et hebdomadaire. Chaque intervention est affichée à sa date planifiée. Cliquez pour voir les détails ou modifier.
-          </p>
+        <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+          <h3 class="font-bold font-grotesk text-lg mb-3">Mode démo</h3>
+          <p class="text-sm text-gray-600 mb-3">3 comptes pré-configurés avec sessions stockées en local.</p>
+          <div class="bg-neo-gray p-3 font-mono text-xs space-y-1">
+            <div>admin@aemi.cd &bull; Admin</div>
+            <div>tech1@aemi.cd &bull; Technicien</div>
+            <div>tech2@aemi.cd &bull; Technicien</div>
+          </div>
         </div>
       </div>
       <div class="animate-on-scroll from-right stagger-2">
-        <div class="neo-card bg-white p-8 h-full">
-          <div class="neo-card-sm bg-neo-orange text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">VUE 2</div>
-          <h3 class="font-bold font-grotesk text-lg mb-3">Kanban</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Tableau avec colonnes par statut. Déplacez les interventions par glisser-déposer pour changer leur état.
-          </p>
+        <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+          <h3 class="font-bold font-grotesk text-lg mb-3">Mode production</h3>
+          <p class="text-sm text-gray-600 mb-3">Supabase Auth avec tokens JWT sécurisés.</p>
+          <div class="bg-neo-gray p-3 text-xs space-y-1">
+            <div><strong>Inscription :</strong> Email + mot de passe + nom complet</div>
+            <div><strong>Session :</strong> Token JWT renouvelé automatiquement</div>
+            <div><strong>Déconnexion :</strong> Suppression du token côté client et serveur</div>
+          </div>
         </div>
       </div>
     </div>
@@ -646,28 +554,937 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 10 — CLIENTS -->
+<!-- SECTION 14 — SÉCURITÉ : RÔLES -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-red mb-4 font-bold">Section 14 — Rôles</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">5 rôles, 5 niveaux d'accès.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Chaque utilisateur a un rôle qui détermine ce qu'il peut voir et faire.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-neo-blue text-white p-6">
+        <h3 class="font-bold text-lg mb-2">Admin</h3>
+        <p class="text-blue-200 text-sm">Accès total. Dashboard, interventions, clients, équipements, facturation, paramètres, reporting.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-neo-purple text-white p-6">
+        <h3 class="font-bold text-lg mb-2">Superviseur</h3>
+        <p class="text-purple-200 text-sm">Même accès que l'admin. Peut aussi être assigné aux interventions.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-neo-green text-white p-6">
+        <h3 class="font-bold text-lg mb-2">Technicien</h3>
+        <p class="text-green-100 text-sm">Vue mobile uniquement. Ne voit que ses interventions assignées. Ne peut pas accéder au dashboard admin.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-neo-orange text-white p-6">
+        <h3 class="font-bold text-lg mb-2">Chauffeur</h3>
+        <p class="text-orange-100 text-sm">Accès aux demandes de véhicule et à la logistique terrain.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-5 neo-card bg-neo-yellow text-neo-black p-6">
+        <h3 class="font-bold text-lg mb-2">Agent administratif</h3>
+        <p class="text-gray-700 text-sm">Accès à la facturation, aux clients et au reporting.</p>
+      </div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-6 mt-6">
+      <div class="neo-card-sm bg-neo-gray p-4 text-sm">
+        <strong>Redirection automatique :</strong> Un technicien qui essaie d'accéder au dashboard admin est automatiquement redirigé vers sa vue mobile.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 15 — SÉCURITÉ : RLS -->
 <!-- ============================================ -->
 <section class="py-20 px-4 bg-neo-dark text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-yellow mb-4 font-bold">Section 10 — Clients</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Les clients de démonstration.</h2>
-      <p class="text-lg text-gray-400 mb-12 max-w-3xl">
-        6 clients avec 8 sites répartis au Katanga et en RDC. Chaque client a ses contacts et ses équipements.
-      </p>
+      <div class="section-number text-neo-red mb-4 font-bold">Section 15 — RLS</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Row Level Security.</h2>
+      <p class="text-lg text-gray-400 mb-12 max-w-3xl">La sécurité au niveau de la base de données. Chaque table a ses propres règles d'accès.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px #ef233c;">
+        <h3 class="font-grotesk font-bold text-lg mb-4">Politiques RLS actives sur 16 tables</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-neo-red flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">1</div>
+            <div><strong>Notifications :</strong> Chaque utilisateur ne voit que <strong>ses propres</strong> notifications. Il ne peut pas lire celles des autres.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-neo-orange flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">2</div>
+            <div><strong>Profils :</strong> Tout le monde peut voir les profils, mais chaque utilisateur ne peut modifier que <strong>le sien</strong>.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-neo-blue flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">3</div>
+            <div><strong>Données métier :</strong> Clients, interventions, équipements — accessibles à tous les utilisateurs authentifiés. Le filtrage par rôle se fait côté application.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 16 — SÉCURITÉ : PROTECTION -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-red mb-4 font-bold">Section 16 — Protection</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Résumé sécurité.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="animate-on-scroll from-bottom stagger-1 neo-card bg-white p-6">
+        <div class="text-2xl mb-3">🔐</div>
+        <h3 class="font-bold mb-2">Authentification obligatoire</h3>
+        <p class="text-xs text-gray-500">Aucune page n'est accessible sans connexion. Redirection automatique vers /login.</p>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-2 neo-card bg-white p-6">
+        <div class="text-2xl mb-3">🛡️</div>
+        <h3 class="font-bold mb-2">Tokens JWT</h3>
+        <p class="text-xs text-gray-500">Sessions sécurisées avec renouvellement automatique via Supabase Auth.</p>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-3 neo-card bg-white p-6">
+        <div class="text-2xl mb-3">🔒</div>
+        <h3 class="font-bold mb-2">RLS PostgreSQL</h3>
+        <p class="text-xs text-gray-500">16 tables protégées au niveau base de données. Notifications isolées par utilisateur.</p>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-4 neo-card bg-white p-6">
+        <div class="text-2xl mb-3">👤</div>
+        <h3 class="font-bold mb-2">Routage par rôle</h3>
+        <p class="text-xs text-gray-500">Techniciens redirigés vers la vue mobile. Impossible d'accéder au dashboard admin.</p>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-5 neo-card bg-white p-6">
+        <div class="text-2xl mb-3">📱</div>
+        <h3 class="font-bold mb-2">HTTPS obligatoire</h3>
+        <p class="text-xs text-gray-500">Déployé sur Vercel avec certificat SSL. Toutes les connexions sont chiffrées.</p>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-6 neo-card bg-white p-6">
+        <div class="text-2xl mb-3">🗄️</div>
+        <h3 class="font-bold mb-2">Stockage sécurisé</h3>
+        <p class="text-xs text-gray-500">Photos et signatures dans Supabase Storage avec accès contrôlé par bucket.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 17 — CRÉER UNE INTERVENTION -->
+<!-- ============================================ -->
+<section id="creer-intervention" class="py-20 px-4 bg-neo-orange text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 17 — Créer</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Créer une intervention.</h2>
+      <p class="text-lg text-orange-100 mb-12 max-w-3xl">L'admin ouvre le dashboard et clique sur <strong>« + Nouvelle intervention »</strong>. Un formulaire rapide s'ouvre.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white text-neo-black p-8" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <h3 class="font-grotesk font-bold text-lg mb-6">Les champs du formulaire</h3>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Client</strong> — Sélection dans la liste des clients</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Site</strong> — Filtré selon le client choisi</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Équipement</strong> — Filtré selon le site choisi</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Type</strong> — Entretien, Réparation, Constat, Installation</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Priorité</strong> — Auto : haute si réparation</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Description</strong> — Détails de l'intervention</div>
+        </div>
+        <div class="mt-6 neo-card-sm bg-neo-yellow p-3 text-sm">
+          <strong>Résultat :</strong> L'intervention est créée avec le statut <strong>« Créée »</strong>. Elle est prête à être planifiée.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 18 — PLANIFIER -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-purple mb-4 font-bold">Section 18 — Planifier</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Planifier l'intervention.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-8">
+        <p class="text-sm mb-4">Une fois l'intervention créée, l'admin la planifie :</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3"><div class="neo-card-sm bg-neo-gray px-3 py-2 text-xs font-bold">Créée</div><span>&rarr;</span><div class="neo-card-sm bg-neo-yellow px-3 py-2 text-xs font-bold">Planifiée</div></div>
+        </div>
+        <div class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Date prévue</strong> — Jour de l'intervention</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Heure</strong> — Créneau horaire</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Durée estimée</strong> — En minutes</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Notes superviseur</strong> — Instructions spéciales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 19 — ASSIGNER UN TECHNICIEN -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-blue text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 19 — Assigner</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Assigner un technicien.</h2>
+      <p class="text-lg text-blue-200 mb-12 max-w-3xl">L'admin choisit un ou plusieurs techniciens dans la liste du personnel actif.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="animate-on-scroll from-left stagger-1">
+        <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px #ffd166;">
+          <h3 class="font-bold mb-3">Ce que fait l'admin</h3>
+          <ol class="space-y-2 text-sm text-gray-600 list-decimal pl-5">
+            <li>Ouvre la fiche de l'intervention</li>
+            <li>Clique sur <strong>« Assigner »</strong></li>
+            <li>Sélectionne le(s) technicien(s) disponible(s)</li>
+            <li>Confirme l'assignation</li>
+          </ol>
+          <div class="mt-4 neo-card-sm bg-neo-yellow p-3 text-xs">
+            Statut passe de <strong>Planifiée</strong> à <strong>Assignée</strong>. Le timestamp <code>assigned_at</code> est enregistré.
+          </div>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-right stagger-2">
+        <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px #06d6a0;">
+          <h3 class="font-bold mb-3">Critères de sélection</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-green inline-block"></span> Rôle : technicien ou superviseur</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-green inline-block"></span> Statut : actif uniquement</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-green inline-block"></span> Compétences : GE Caterpillar, Perkins, etc.</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-green inline-block"></span> Multi-assignation possible</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 20 — LE TECHNICIEN REÇOIT -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-green text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 20 — Réception</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Le technicien reçoit l'intervention.</h2>
+      <p class="text-lg text-green-100 mb-12 max-w-3xl">Dès que l'intervention est assignée, elle apparaît dans la liste du technicien sur son téléphone.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white text-neo-black p-8" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <h3 class="font-grotesk font-bold text-lg mb-4">Ce que voit le technicien</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-neo-red flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">!</div>
+            <div><strong>Urgentes / En retard</strong> — Les interventions urgentes ou dont la date est dépassée apparaissent en premier, en rouge.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-neo-blue flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">→</div>
+            <div><strong>Aujourd'hui</strong> — Les interventions planifiées pour la journée en cours.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-neo-gray flex-shrink-0 flex items-center justify-center text-neo-black font-bold text-xs border-2 border-neo-black">…</div>
+            <div><strong>À venir</strong> — Les interventions futures, triées par date.</div>
+          </div>
+        </div>
+        <div class="mt-6 grid sm:grid-cols-3 gap-3">
+          <div class="neo-card-sm bg-neo-green text-white p-3 text-center text-xs"><strong>Badge priorité</strong><br>Basse / Normale / Haute / Urgente</div>
+          <div class="neo-card-sm bg-neo-orange text-white p-3 text-center text-xs"><strong>Badge type</strong><br>Entretien / Réparation / Constat</div>
+          <div class="neo-card-sm bg-neo-blue text-white p-3 text-center text-xs"><strong>Actions rapides</strong><br>Appeler le client / GPS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 21 — VUE MOBILE DU TECHNICIEN -->
+<!-- ============================================ -->
+<section id="technicien" class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 21 — Vue mobile</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">L'interface terrain.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Connectez-vous avec <strong>tech1@aemi.cd</strong> pour voir cette vue. Optimisée pour le téléphone.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-white p-5 text-center">
+        <div class="text-2xl mb-2">👋</div>
+        <div class="font-bold text-sm">Bonjour Patrick</div>
+        <p class="text-xs text-gray-500 mt-1">Message d'accueil + date du jour</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-white p-5 text-center">
+        <div class="text-2xl mb-2">📊</div>
+        <div class="font-bold text-sm">Stats du jour</div>
+        <p class="text-xs text-gray-500 mt-1">Terminées / Heures travaillées / À faire</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-white p-5 text-center">
+        <div class="text-2xl mb-2">🔵</div>
+        <div class="font-bold text-sm">Intervention active</div>
+        <p class="text-xs text-gray-500 mt-1">Bannière bleue avec timer en cours</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-white p-5 text-center">
+        <div class="text-2xl mb-2">📍</div>
+        <div class="font-bold text-sm">GPS actif</div>
+        <p class="text-xs text-gray-500 mt-1">Indicateur vert si géolocalisation active</p>
+      </div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-5 mt-6">
+      <div class="neo-card-sm bg-neo-gray p-4 text-sm">
+        <strong>Navigation mobile :</strong> 3 onglets en bas — <strong>Tâches</strong> (liste des interventions), <strong>Historique</strong> (interventions terminées), <strong>Profil</strong> (informations personnelles). Plus un bouton <strong>Installer</strong> pour la PWA.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 22 — LE PARCOURS EN 5 ÉTAPES -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-purple text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 22 — Le parcours</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">5 étapes pour le technicien.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white text-neo-black p-8" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <p class="text-sm mb-6">Quand le technicien tape sur une intervention, il entre dans un <strong>assistant en 5 étapes</strong>. Il avance étape par étape.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <div class="neo-card-sm bg-neo-blue text-white px-4 py-3 font-bold text-sm">1. Mission</div>
+          <span class="self-center text-gray-300">&rarr;</span>
+          <div class="neo-card-sm bg-neo-orange text-white px-4 py-3 font-bold text-sm">2. Trajet</div>
+          <span class="self-center text-gray-300">&rarr;</span>
+          <div class="neo-card-sm bg-neo-green text-white px-4 py-3 font-bold text-sm">3. Travail</div>
+          <span class="self-center text-gray-300">&rarr;</span>
+          <div class="neo-card-sm bg-neo-purple text-white px-4 py-3 font-bold text-sm">4. Photos</div>
+          <span class="self-center text-gray-300">&rarr;</span>
+          <div class="neo-card-sm bg-neo-black text-white px-4 py-3 font-bold text-sm">5. Résumé</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 23 — ÉTAPE 1 : MISSION -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 23 — Étape 1</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Mission.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Le technicien consulte les détails de l'intervention avant de partir.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="animate-on-scroll from-left stagger-1">
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-bold mb-3">Ce qu'il voit</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-blue inline-block"></span> Type et priorité de l'intervention</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-blue inline-block"></span> Durée estimée</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-blue inline-block"></span> Statut logistique (matériel prêt ou non)</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-blue inline-block"></span> Fiche équipement : marque, modèle, puissance, compteur horaire, carburant</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-blue inline-block"></span> Client et site : adresse, contraintes d'accès, contact</li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-blue inline-block"></span> Notes du superviseur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-right stagger-2">
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-bold mb-3">Ce qu'il fait</h3>
+          <div class="space-y-4">
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm">
+              <strong>Bouton « Appeler »</strong> — Lance un appel vers le contact principal du site.
+            </div>
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm">
+              <strong>Lien Google Maps</strong> — Ouvre l'itinéraire vers le site.
+            </div>
+            <div class="mt-4">
+              <div class="neo-btn bg-neo-blue text-white px-6 py-3 font-bold text-center w-full">Démarrer la mission &rarr;</div>
+            </div>
+            <p class="text-xs text-gray-400 text-center">Le statut passe à <strong>« En route »</strong>. Le chrono trajet démarre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 24 — ÉTAPE 2 : TRAJET -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-gray">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-orange mb-4 font-bold">Section 24 — Étape 2</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Trajet.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Le technicien est en route. L'application suit sa position GPS en temps réel.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-8">
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl mb-2">📍</div>
+            <h3 class="font-bold text-sm mb-1">Distance en direct</h3>
+            <p class="text-xs text-gray-500">Calcul GPS avec formule de Haversine. Distance restante affichée en km.</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🗺️</div>
+            <h3 class="font-bold text-sm mb-1">Navigation</h3>
+            <p class="text-xs text-gray-500">Bouton « Naviguer vers le site » — ouvre Google Maps avec l'itinéraire.</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">📞</div>
+            <h3 class="font-bold text-sm mb-1">Contact client</h3>
+            <p class="text-xs text-gray-500">Appeler le client directement depuis l'application si besoin.</p>
+          </div>
+        </div>
+        <div class="mt-6 text-center">
+          <div class="neo-btn bg-neo-green text-white px-6 py-3 font-bold inline-block">Je suis arrivé &rarr;</div>
+          <p class="text-xs text-gray-400 mt-2">Statut passe à <strong>« En cours »</strong>. Le chrono de travail démarre. Les heures compteur sont notées.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 25 — ÉTAPE 3 : TRAVAIL -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 25 — Étape 3</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Travail.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Le technicien est sur site. Il effectue le travail et documente tout dans l'application.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="animate-on-scroll from-left stagger-1">
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-bold mb-3">Timer de travail</h3>
+          <div class="bg-neo-dark text-white p-4 text-center font-mono text-3xl mb-4">02:34:15</div>
+          <p class="text-sm text-gray-600">Le chrono tourne en temps réel (HH:MM:SS). Il se reprend automatiquement si le technicien quitte et revient. Bouton pause/play disponible.</p>
+          <p class="text-xs text-gray-400 mt-3">Un bandeau flottant en haut de l'écran affiche le timer en permanence à partir de cette étape.</p>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-right stagger-2">
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-bold mb-3">Compteur horaire GE</h3>
+          <div class="space-y-3">
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm">
+              <strong>Heures début :</strong> Pré-rempli avec le compteur actuel de l'équipement
+            </div>
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm">
+              <strong>Heures fin :</strong> À remplir par le technicien après le travail
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 mt-3">Ces heures permettent de mettre à jour le compteur de l'équipement et de déclencher les alertes de maintenance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 26 — CHECKLIST DE CONTRÔLE -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-yellow">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 26 — Checklist</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Checklist de contrôle.</h2>
+      <p class="text-lg text-gray-700 mb-12 max-w-3xl">Chaque type d'intervention a sa propre checklist. Le technicien coche chaque point de contrôle.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="animate-on-scroll from-left stagger-1">
+        <div class="neo-card bg-white p-6">
+          <div class="neo-card-sm bg-neo-blue text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">ENTRETIEN — 10 POINTS</div>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Niveau d'huile vérifié *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Filtres à air changés *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Filtres à huile changés *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Tension courroies contrôlée *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Tension batterie OK *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black inline-block"></span> Nettoyage général</div>
+          </div>
+          <p class="text-xs text-gray-400 mt-3">* = obligatoire</p>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-right stagger-2">
+        <div class="neo-card bg-white p-6">
+          <div class="neo-card-sm bg-neo-orange text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">RÉPARATION — 5 POINTS</div>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Diagnostic effectué *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Cause de la panne identifiée *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Pièces remplacées documentées *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Test de fonctionnement réussi *</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-neo-black bg-neo-green inline-block"></span> Client informé *</div>
+          </div>
+          <div class="mt-4 neo-card-sm bg-neo-purple text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-2">CONSTAT — 7 POINTS</div>
+          <div class="mt-2 neo-card-sm bg-neo-green text-white px-3 py-1 inline-block font-mono text-xs font-bold">INSTALLATION — 9 POINTS</div>
+        </div>
+      </div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-3 mt-6">
+      <div class="neo-card-sm bg-white p-4 text-sm">
+        <strong>Barre de progression :</strong> Le pourcentage de complétion est affiché en temps réel. Les éléments obligatoires sont marqués en rouge s'ils ne sont pas cochés.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 27 — SIGNALER UN PROBLÈME -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-red mb-4 font-bold">Section 27 — Problème</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Signaler un problème.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-8">
+        <p class="text-sm mb-4">Pendant l'étape Travail, le technicien peut signaler un problème rencontré :</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm"><strong>Description</strong> — Ce qui ne va pas</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm"><strong>Criticité</strong> — Niveau de gravité</div>
+        </div>
+        <p class="text-xs text-gray-400 mt-4">Les problèmes signalés sont sauvegardés dans la fiche de l'intervention et visibles par l'admin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 28 — ÉTAPE 4 : PHOTOS -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-dark text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-pink mb-4 font-bold">Section 28 — Étape 4</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Photos.</h2>
+      <p class="text-lg text-gray-400 mb-12 max-w-3xl">Le technicien prend des photos à chaque étape de l'intervention.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-neo-blue p-6 text-center">
+        <div class="text-3xl mb-3">📸</div>
+        <h3 class="font-bold mb-1">Avant</h3>
+        <p class="text-blue-200 text-xs">État de l'équipement avant le travail. Max 10 photos.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-neo-orange p-6 text-center">
+        <div class="text-3xl mb-3">🔧</div>
+        <h3 class="font-bold mb-1">Pendant</h3>
+        <p class="text-orange-100 text-xs">Travaux en cours, pièces remplacées. Max 10 photos.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-neo-green p-6 text-center">
+        <div class="text-3xl mb-3">✅</div>
+        <h3 class="font-bold mb-1">Après</h3>
+        <p class="text-green-100 text-xs">Résultat final après intervention. Max 10 photos.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-neo-purple p-6 text-center">
+        <div class="text-3xl mb-3">📋</div>
+        <h3 class="font-bold mb-1">Fiche</h3>
+        <p class="text-purple-100 text-xs">Photo de la fiche d'intervention papier. Mode paysage.</p>
+      </div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-5 mt-6">
+      <div class="neo-card bg-white/10 p-4 text-sm backdrop-blur-sm">
+        <strong>Compression automatique :</strong> Les photos sont compressées avant envoi (max 1 Mo, 1920px). Les métadonnées EXIF sont conservées. Stockées dans Supabase Storage.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 29 — SIGNATURE CLIENT -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-purple mb-4 font-bold">Section 29 — Signature</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Signature du client.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-8 text-center">
+        <div class="bg-neo-gray border-2 border-neo-black p-8 mb-4 max-w-sm mx-auto" style="min-height:120px;">
+          <p class="text-gray-400 italic text-sm">Zone de signature tactile</p>
+          <p class="font-mono text-3xl mt-4" style="font-family:cursive;">Clément K.</p>
+        </div>
+        <p class="text-sm text-gray-600 mb-4">Le client signe directement sur l'écran du téléphone. Actions : Annuler, Effacer, Valider.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <div class="neo-card-sm bg-neo-gray px-3 py-1 text-xs font-bold">Annuler</div>
+          <div class="neo-card-sm bg-neo-red text-white px-3 py-1 text-xs font-bold">Effacer</div>
+          <div class="neo-card-sm bg-neo-green text-white px-3 py-1 text-xs font-bold">Valider</div>
+        </div>
+        <p class="text-xs text-gray-400 mt-4">La signature est sauvegardée en PNG dans Supabase Storage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 30 — ÉTAPE 5 : RÉSUMÉ -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-gray">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 30 — Étape 5</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Résumé.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Avant de valider, le technicien remplit un résumé et vérifie que tout est complet.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="animate-on-scroll from-left stagger-1">
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-bold mb-3">À remplir</h3>
+          <div class="space-y-3">
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm"><strong>Travaux réalisés</strong> — Description du travail effectué</div>
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm"><strong>Diagnostic</strong> — Analyse technique</div>
+            <div class="bg-neo-gray p-3 border-2 border-neo-black text-sm"><strong>Recommandations</strong> — Conseils pour la suite</div>
+          </div>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-right stagger-2">
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-bold mb-3">Vérification automatique</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-neo-green border-2 border-neo-black inline-block"></span> Checklist complétée à X%</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-neo-green border-2 border-neo-black inline-block"></span> Photos avant : X / Pendant : X / Après : X</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-neo-green border-2 border-neo-black inline-block"></span> Signature client : oui/non</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-neo-green border-2 border-neo-black inline-block"></span> Fiche d'intervention : oui/non</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-neo-green border-2 border-neo-black inline-block"></span> Compteur horaire rempli</div>
+            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-neo-green border-2 border-neo-black inline-block"></span> Timer de travail</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 31 — VALIDER L'INTERVENTION -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-green text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 31 — Valider</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Valider l'intervention.</h2>
+    </div>
+    <div class="animate-on-scroll bounce">
+      <div class="neo-card bg-white text-neo-black p-8" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <p class="text-lg mb-6">Le bouton <strong>« Valider l'intervention »</strong> n'est actif que si :</p>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm mb-6">
+          <div class="neo-card-sm bg-neo-green text-white p-3 font-bold">Tous les points obligatoires de la checklist sont cochés</div>
+          <div class="neo-card-sm bg-neo-green text-white p-3 font-bold">La signature client OU la fiche d'intervention est présente</div>
+        </div>
+        <p class="text-sm text-gray-600 mb-4">À la validation, l'application enregistre :</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+          <div class="bg-neo-gray p-2 border border-neo-black">completed_at</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">hours_at_end</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">work_done</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">diagnosis</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">recommendations</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">checklist complète</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">toutes les photos</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">signature client</div>
+          <div class="bg-neo-gray p-2 border border-neo-black">statut → Terminée</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 32 — APRÈS VALIDATION -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 32 — Après</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Après la validation du technicien.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">L'intervention revient côté admin pour la suite du processus.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-6">
+        <div class="flex flex-wrap items-center gap-3 text-sm">
+          <div class="neo-card-sm bg-neo-green text-white px-3 py-2 font-bold">Terminée</div>
+          <span>&rarr;</span>
+          <div class="neo-card-sm bg-neo-blue text-white px-3 py-2 font-bold">Validée par l'admin</div>
+          <span>&rarr;</span>
+          <div class="neo-card-sm bg-neo-purple text-white px-3 py-2 font-bold">À facturer</div>
+          <span>&rarr;</span>
+          <div class="neo-card-sm bg-neo-black text-white px-3 py-2 font-bold">Facturée</div>
+        </div>
+        <div class="mt-6 grid sm:grid-cols-3 gap-4 text-sm">
+          <div class="bg-neo-gray p-3 border-2 border-neo-black">
+            <strong>L'admin vérifie</strong> le rapport, les photos, la checklist. Il valide.
+          </div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black">
+            <strong>Le service facturation</strong> crée un devis puis une facture.
+          </div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black">
+            <strong>Le paiement</strong> est suivi. La facture est exportable en PDF.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 33 — CYCLE DE VIE COMPLET -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-black text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-orange mb-4 font-bold">Section 33 — Cycle de vie</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Les 11 statuts.</h2>
+      <p class="text-lg text-gray-400 mb-12 max-w-3xl">De la création à la facturation, chaque intervention passe par ces 11 étapes.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="flex flex-wrap gap-3 justify-center">
+        <div class="neo-card-sm bg-neo-gray text-neo-black px-3 py-2 text-xs font-bold">1. Créée</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-yellow text-neo-black px-3 py-2 text-xs font-bold">2. Planifiée</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-blue px-3 py-2 text-xs font-bold">3. Assignée</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-purple px-3 py-2 text-xs font-bold">4. En route</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-orange px-3 py-2 text-xs font-bold">5. Sur site</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-pink px-3 py-2 text-xs font-bold">6. En cours</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-red px-3 py-2 text-xs font-bold">7. En attente</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-green px-3 py-2 text-xs font-bold">8. Terminée</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-blue px-3 py-2 text-xs font-bold">9. Validée</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-neo-purple px-3 py-2 text-xs font-bold">10. À facturer</div>
+        <span class="text-gray-500 self-center">&rarr;</span>
+        <div class="neo-card-sm bg-white text-neo-black px-3 py-2 text-xs font-bold">11. Facturée</div>
+      </div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-2 mt-8">
+      <div class="neo-card bg-white/10 p-4 text-sm backdrop-blur-sm">
+        <strong>Transitions spéciales :</strong> Depuis « En cours », le technicien peut passer en « En attente » (pièce manquante, météo...) puis revenir en « En cours ».
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 34 — TYPES D'INTERVENTION -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-orange mb-4 font-bold">Section 34 — Types</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">5 types d'intervention.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-white p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="w-4 h-4 bg-neo-blue inline-block border-2 border-neo-black"></span><h3 class="font-bold">Entretien</h3></div>
+        <p class="text-xs text-gray-500">Maintenance préventive (250h, 500h, 1000h). Checklist de 10 points.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-white p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="w-4 h-4 bg-neo-orange inline-block border-2 border-neo-black"></span><h3 class="font-bold">Réparation</h3></div>
+        <p class="text-xs text-gray-500">Intervention corrective suite à une panne. Checklist de 5 points. Priorité haute automatique.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-white p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="w-4 h-4 bg-neo-purple inline-block border-2 border-neo-black"></span><h3 class="font-bold">Constat</h3></div>
+        <p class="text-xs text-gray-500">Diagnostic sur place. Inspection visuelle, mesures, rapport. Checklist de 7 points.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-white p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="w-4 h-4 bg-neo-green inline-block border-2 border-neo-black"></span><h3 class="font-bold">Installation</h3></div>
+        <p class="text-xs text-gray-500">Mise en service d'un nouveau groupe électrogène. Checklist de 9 points.</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-5 neo-card bg-white p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="w-4 h-4 bg-neo-yellow inline-block border-2 border-neo-black"></span><h3 class="font-bold">Manutention</h3></div>
+        <p class="text-xs text-gray-500">Déplacement, levage, positionnement d'un équipement. Utilise la checklist entretien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 35 — PRIORITÉS -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-gray">
+  <div class="max-w-4xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-red mb-4 font-bold">Section 35 — Priorités</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">4 niveaux de priorité.</h2>
+    </div>
+    <div class="grid sm:grid-cols-4 gap-4">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-white p-5 text-center">
+        <div class="w-8 h-8 bg-gray-300 mx-auto mb-3 border-2 border-neo-black"></div>
+        <div class="font-bold">Basse</div>
+        <p class="text-xs text-gray-500 mt-1">Peut attendre</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-white p-5 text-center">
+        <div class="w-8 h-8 bg-neo-yellow mx-auto mb-3 border-2 border-neo-black"></div>
+        <div class="font-bold">Normale</div>
+        <p class="text-xs text-gray-500 mt-1">Par défaut</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-white p-5 text-center">
+        <div class="w-8 h-8 bg-neo-orange mx-auto mb-3 border-2 border-neo-black"></div>
+        <div class="font-bold">Haute</div>
+        <p class="text-xs text-gray-500 mt-1">Prioritaire</p>
+      </div>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-white p-5 text-center">
+        <div class="w-8 h-8 bg-neo-red mx-auto mb-3 border-2 border-neo-black"></div>
+        <div class="font-bold">Urgente</div>
+        <p class="text-xs text-gray-500 mt-1">Immédiate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 36 — ÉQUIPEMENTS GE -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 36 — Équipements</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Fiche d'un groupe électrogène.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Chaque GE a sa fiche complète avec toutes les informations techniques.</p>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Référence client</strong></div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Marque / Modèle</strong></div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Numéro de série</strong></div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Puissance (kVA)</strong></div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Carburant</strong> (diesel, essence, gaz)</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Volume réservoir</strong></div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Compteur horaire</strong></div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Seuil maintenance</strong> (250h, 500h)</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Statut</strong> (opérationnel, en panne...)</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Composants</strong> (moteur, alternateur...)</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Documents</strong> (fiches techniques)</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>Photos</strong> de l'équipement</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 37 — COMPTEUR HORAIRE -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-yellow">
+  <div class="max-w-4xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-black mb-4 font-bold">Section 37 — Compteur</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">Compteur horaire &amp; alertes.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-8">
+        <p class="text-sm mb-4">Chaque équipement a un compteur d'heures de fonctionnement et un seuil de maintenance configuré.</p>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-bold text-sm mb-2">Seuils standards</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-green inline-block border border-neo-black"></span> 250h — Entretien courant</div>
+              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-orange inline-block border border-neo-black"></span> 500h — Entretien approfondi</div>
+              <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-red inline-block border border-neo-black"></span> 1000h — Révision majeure</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm mb-2">Alerte automatique</h3>
+            <p class="text-sm text-gray-600">Quand le compteur atteint <strong>90%</strong> du seuil, une notification est générée. Si le seuil est dépassé, l'alerte devient <strong>critique</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 38 — ÉQUIPEMENTS DÉMO -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-green mb-4 font-bold">Section 38 — Démo</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Équipements de démonstration.</h2>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-6 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead><tr class="bg-neo-gray">
+            <th class="p-3 text-left border-b-2 border-neo-black">Réf.</th>
+            <th class="p-3 text-left border-b-2 border-neo-black">Marque / Modèle</th>
+            <th class="p-3 text-center border-b-2 border-neo-black">Puissance</th>
+            <th class="p-3 text-center border-b-2 border-neo-black">Heures</th>
+            <th class="p-3 text-center border-b-2 border-neo-black">Statut</th>
+          </tr></thead>
+          <tbody>
+            <tr class="border-b border-gray-200"><td class="p-3 font-mono text-xs">BK-GE-001</td><td class="p-3 font-bold">Caterpillar C15</td><td class="p-3 text-center">500 kVA</td><td class="p-3 text-center font-mono">4 750h</td><td class="p-3 text-center"><span class="bg-neo-yellow text-neo-black px-2 py-0.5 text-xs font-bold">Maintenance</span></td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-mono text-xs">AMB-GE-01</td><td class="p-3 font-bold">Perkins 2000</td><td class="p-3 text-center">350 kVA</td><td class="p-3 text-center font-mono">2 340h</td><td class="p-3 text-center"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Opérationnel</span></td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-mono text-xs">MCI-ALPHA-001</td><td class="p-3 font-bold">Caterpillar C18</td><td class="p-3 text-center">750 kVA</td><td class="p-3 text-center font-mono">5 680h</td><td class="p-3 text-center"><span class="bg-neo-red text-white px-2 py-0.5 text-xs font-bold">En panne</span></td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-mono text-xs">RAFPET-001</td><td class="p-3 font-bold">MTU 16V4000</td><td class="p-3 text-center">2 000 kVA</td><td class="p-3 text-center font-mono">3 500h</td><td class="p-3 text-center"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Opérationnel</span></td></tr>
+            <tr><td class="p-3 font-mono text-xs">MCI-ALPHA-002</td><td class="p-3 font-bold">Cummins KTA50</td><td class="p-3 text-center">1 500 kVA</td><td class="p-3 text-center font-mono">2 800h</td><td class="p-3 text-center"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Opérationnel</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 39 — PLANNING -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-purple text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 39 — Planning</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Calendrier &amp; Kanban.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="animate-on-scroll from-left stagger-1">
+        <div class="neo-card bg-white text-neo-black p-8 h-full" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+          <div class="neo-card-sm bg-neo-purple text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">VUE 1</div>
+          <h3 class="font-bold font-grotesk text-lg mb-3">Calendrier</h3>
+          <p class="text-gray-600 text-sm">Vue mensuelle et hebdomadaire. Chaque intervention à sa date. Cliquez pour voir les détails.</p>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-right stagger-2">
+        <div class="neo-card bg-white text-neo-black p-8 h-full" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+          <div class="neo-card-sm bg-neo-orange text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">VUE 2</div>
+          <h3 class="font-bold font-grotesk text-lg mb-3">Kanban</h3>
+          <p class="text-gray-600 text-sm">Colonnes par statut. Glisser-déposer les interventions pour changer leur état.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 40 — CLIENTS -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-dark text-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 40 — Clients</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Les clients de démonstration.</h2>
     </div>
     <div class="animate-on-scroll from-bottom stagger-1">
       <div class="neo-card bg-white text-neo-black p-6 overflow-x-auto" style="box-shadow: 6px 6px 0px 0px #ffd166;">
         <table class="w-full text-sm">
-          <thead>
-            <tr class="bg-neo-gray">
-              <th class="p-3 text-left border-b-2 border-neo-black">Client</th>
-              <th class="p-3 text-left border-b-2 border-neo-black">Ville</th>
-              <th class="p-3 text-center border-b-2 border-neo-black">Sites</th>
-              <th class="p-3 text-center border-b-2 border-neo-black">Équipements</th>
-            </tr>
-          </thead>
+          <thead><tr class="bg-neo-gray">
+            <th class="p-3 text-left border-b-2 border-neo-black">Client</th>
+            <th class="p-3 text-left border-b-2 border-neo-black">Ville</th>
+            <th class="p-3 text-center border-b-2 border-neo-black">Sites</th>
+            <th class="p-3 text-center border-b-2 border-neo-black">Équipements</th>
+          </tr></thead>
           <tbody>
             <tr class="border-b border-gray-200"><td class="p-3 font-bold">Brasserie de Kinshasa</td><td class="p-3">Kinshasa</td><td class="p-3 text-center font-mono">2</td><td class="p-3 text-center font-mono">2</td></tr>
             <tr class="border-b border-gray-200"><td class="p-3 font-bold">Ambassade de France</td><td class="p-3">Kinshasa</td><td class="p-3 text-center font-mono">1</td><td class="p-3 text-center font-mono">1</td></tr>
@@ -683,200 +1500,77 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 11 — FACTURATION -->
+<!-- SECTION 41 — FACTURATION DEVIS -->
 <!-- ============================================ -->
 <section class="py-20 px-4">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-blue mb-4 font-bold">Section 11 — Facturation</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Devis et factures.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Créez des devis, convertissez-les en factures, suivez les paiements et exportez en PDF.
-      </p>
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 41 — Devis</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Créer un devis.</h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="animate-on-scroll from-bottom stagger-1">
-        <div class="neo-card bg-white p-6 text-center h-full">
-          <div class="w-16 h-16 mx-auto bg-neo-blue text-white flex items-center justify-center font-bold border-2 border-neo-black text-xl mb-4">1</div>
-          <h3 class="font-bold mb-2">Créer un devis</h3>
-          <p class="text-xs text-gray-500">Sélectionnez le client, ajoutez les lignes (pièces, main-d'œuvre), et générez le devis.</p>
+    <div class="animate-on-scroll from-bottom stagger-1">
+      <div class="neo-card bg-white p-8">
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div><div class="w-16 h-16 mx-auto bg-neo-blue text-white flex items-center justify-center font-bold border-2 border-neo-black text-xl mb-3">1</div><h3 class="font-bold text-sm mb-1">Sélectionner</h3><p class="text-xs text-gray-500">Client, site, intervention concernée.</p></div>
+          <div><div class="w-16 h-16 mx-auto bg-neo-orange text-white flex items-center justify-center font-bold border-2 border-neo-black text-xl mb-3">2</div><h3 class="font-bold text-sm mb-1">Chiffrer</h3><p class="text-xs text-gray-500">Montant HT et TTC, objet du devis.</p></div>
+          <div><div class="w-16 h-16 mx-auto bg-neo-green text-white flex items-center justify-center font-bold border-2 border-neo-black text-xl mb-3">3</div><h3 class="font-bold text-sm mb-1">Envoyer</h3><p class="text-xs text-gray-500">Statut : En attente → Accepté ou Rejeté.</p></div>
         </div>
-      </div>
-      <div class="animate-on-scroll from-bottom stagger-2">
-        <div class="neo-card bg-white p-6 text-center h-full">
-          <div class="w-16 h-16 mx-auto bg-neo-orange text-white flex items-center justify-center font-bold border-2 border-neo-black text-xl mb-4">2</div>
-          <h3 class="font-bold mb-2">Convertir en facture</h3>
-          <p class="text-xs text-gray-500">Un clic pour transformer le devis accepté en facture avec numérotation automatique.</p>
-        </div>
-      </div>
-      <div class="animate-on-scroll from-bottom stagger-3">
-        <div class="neo-card bg-white p-6 text-center h-full">
-          <div class="w-16 h-16 mx-auto bg-neo-green text-white flex items-center justify-center font-bold border-2 border-neo-black text-xl mb-4">3</div>
-          <h3 class="font-bold mb-2">Exporter en PDF</h3>
-          <p class="text-xs text-gray-500">Téléchargez la facture au format PDF pour l'envoyer au client.</p>
-        </div>
-      </div>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-4 mt-6 grid sm:grid-cols-3 gap-4">
-      <div class="neo-card-sm bg-neo-yellow p-4 text-center">
-        <div class="font-bold text-lg">Brouillon</div>
-        <div class="text-xs mt-1">En préparation</div>
-      </div>
-      <div class="neo-card-sm bg-neo-orange text-white p-4 text-center">
-        <div class="font-bold text-lg">Envoyé</div>
-        <div class="text-xs mt-1">En attente de paiement</div>
-      </div>
-      <div class="neo-card-sm bg-neo-green text-white p-4 text-center">
-        <div class="font-bold text-lg">Payé</div>
-        <div class="text-xs mt-1">Règlement reçu</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 12 — ATELIER & LOGISTIQUE -->
+<!-- SECTION 42 — FACTURATION FACTURES -->
 <!-- ============================================ -->
 <section class="py-20 px-4 bg-neo-gray">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-orange mb-4 font-bold">Section 12 — Atelier &amp; Logistique</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">L'arrière-boutique.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Deux modules complémentaires pour gérer l'atelier de réparation et la logistique terrain.
-      </p>
+      <div class="section-number text-neo-blue mb-4 font-bold">Section 42 — Factures</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Factures &amp; export PDF.</h2>
     </div>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="animate-on-scroll from-left stagger-1">
-        <div class="neo-card bg-white p-8 h-full">
-          <div class="neo-card-sm bg-neo-orange text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">ATELIER</div>
-          <h3 class="font-grotesk font-bold text-xl mb-3">Module atelier</h3>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-orange inline-block"></span> Ordres de travail entrants</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-orange inline-block"></span> Gestion des pièces détachées</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-orange inline-block"></span> Planning de l'atelier</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-orange inline-block"></span> Assignation des techniciens</li>
-          </ul>
-        </div>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="animate-on-scroll pop stagger-1 neo-card-sm bg-neo-yellow p-4 text-center">
+        <div class="font-bold text-lg">Brouillon</div><div class="text-xs mt-1">En préparation</div>
       </div>
-      <div class="animate-on-scroll from-right stagger-2">
-        <div class="neo-card bg-white p-8 h-full">
-          <div class="neo-card-sm bg-neo-purple text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">LOGISTIQUE</div>
-          <h3 class="font-grotesk font-bold text-xl mb-3">Module logistique</h3>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-purple inline-block"></span> Charroi : gestion de la flotte</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-purple inline-block"></span> Magasin : stock et inventaire</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-purple inline-block"></span> Demandes de matériel</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-neo-purple inline-block"></span> Demandes de véhicules</li>
-          </ul>
-        </div>
+      <div class="animate-on-scroll pop stagger-2 neo-card-sm bg-neo-orange text-white p-4 text-center">
+        <div class="font-bold text-lg">Envoyée</div><div class="text-xs mt-1">En attente de paiement</div>
+      </div>
+      <div class="animate-on-scroll pop stagger-3 neo-card-sm bg-neo-green text-white p-4 text-center">
+        <div class="font-bold text-lg">Payée</div><div class="text-xs mt-1">Règlement reçu</div>
       </div>
     </div>
-    <div class="animate-on-scroll from-bottom stagger-3 mt-6">
-      <div class="neo-card-sm bg-neo-yellow p-4 text-sm">
-        <strong>Contexte métier :</strong> En haut du menu, un sélecteur permet de basculer entre « Maintenance GE », « Atelier » et « Logistique ». Chaque contexte affiche son propre dashboard et ses propres modules.
+    <div class="animate-on-scroll from-bottom stagger-4 mt-6">
+      <div class="neo-card-sm bg-white p-4 text-sm">
+        <strong>Export PDF :</strong> Chaque facture, devis, rapport d'intervention et liste d'équipements peut être exporté en PDF via jsPDF.
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 13 — INTERFACE TECHNICIEN -->
-<!-- ============================================ -->
-<section id="technicien" class="py-20 px-4 bg-neo-green text-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-black mb-4 font-bold">Section 13 — Technicien</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">L'interface terrain.</h2>
-      <p class="text-lg text-green-100 mb-12 max-w-3xl">
-        Connectez-vous avec <strong>tech1@aemi.cd</strong> pour voir cette vue. Elle est conçue pour le téléphone, sur le terrain.
-      </p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="animate-on-scroll pop stagger-1 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
-        <div class="font-mono text-xs text-neo-green mb-2">ÉTAPE 1</div>
-        <h3 class="font-bold mb-2">Voir ses interventions</h3>
-        <p class="text-gray-500 text-sm">Le technicien voit uniquement les interventions qui lui sont assignées.</p>
-      </div>
-      <div class="animate-on-scroll pop stagger-2 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
-        <div class="font-mono text-xs text-neo-green mb-2">ÉTAPE 2</div>
-        <h3 class="font-bold mb-2">Démarrer l'intervention</h3>
-        <p class="text-gray-500 text-sm">Il note les heures compteur du groupe électrogène au démarrage.</p>
-      </div>
-      <div class="animate-on-scroll pop stagger-3 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
-        <div class="font-mono text-xs text-neo-green mb-2">ÉTAPE 3</div>
-        <h3 class="font-bold mb-2">Checklist ISO</h3>
-        <p class="text-gray-500 text-sm">50+ points de contrôle organisés par catégorie (moteur, alternateur, filtres, etc.).</p>
-      </div>
-      <div class="animate-on-scroll pop stagger-4 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
-        <div class="font-mono text-xs text-neo-green mb-2">ÉTAPE 4</div>
-        <h3 class="font-bold mb-2">Photos</h3>
-        <p class="text-gray-500 text-sm">Avant, pendant, après. Photos de pièces et de compteurs. Compression automatique.</p>
-      </div>
-      <div class="animate-on-scroll pop stagger-5 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
-        <div class="font-mono text-xs text-neo-green mb-2">ÉTAPE 5</div>
-        <h3 class="font-bold mb-2">Pièces utilisées</h3>
-        <p class="text-gray-500 text-sm">Liste des pièces consommées pendant l'intervention.</p>
-      </div>
-      <div class="animate-on-scroll pop stagger-6 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
-        <div class="font-mono text-xs text-neo-green mb-2">ÉTAPE 6</div>
-        <h3 class="font-bold mb-2">Signature client</h3>
-        <p class="text-gray-500 text-sm">Le client signe directement sur l'écran du téléphone pour valider l'intervention.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================ -->
-<!-- SECTION 14 — NOTIFICATIONS -->
+<!-- SECTION 43 — NOTIFICATIONS -->
 <!-- ============================================ -->
 <section class="py-20 px-4">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-red mb-4 font-bold">Section 14 — Notifications</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Les alertes.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Le système vous prévient en temps réel : pannes, interventions en retard, maintenances à planifier.
-      </p>
+      <div class="section-number text-neo-red mb-4 font-bold">Section 43 — Notifications</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Les alertes.</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
       <div class="animate-on-scroll from-left stagger-1">
-        <div class="img-frame">
-          <img src="img/notifications.png" alt="Notifications AEMI" loading="lazy">
-        </div>
+        <div class="img-frame"><img src="img/notifications.png" alt="Notifications AEMI" loading="lazy"></div>
       </div>
       <div class="animate-on-scroll from-right stagger-2">
-        <div class="neo-card bg-white p-8 h-full">
-          <h3 class="font-grotesk font-bold text-lg mb-4">Types d'alertes</h3>
-          <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 bg-neo-red flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">!</div>
-              <div>
-                <strong>Urgences</strong>
-                <p class="text-gray-500 text-sm mt-1">Équipement en panne, intervention critique.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 bg-neo-orange flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">⚠</div>
-              <div>
-                <strong>Maintenance</strong>
-                <p class="text-gray-500 text-sm mt-1">Seuil horaire atteint, maintenance préventive à planifier.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 bg-neo-yellow flex-shrink-0 flex items-center justify-center text-neo-black font-bold text-xs border-2 border-neo-black">⏰</div>
-              <div>
-                <strong>Retards</strong>
-                <p class="text-gray-500 text-sm mt-1">Intervention en retard par rapport à la date prévue.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 bg-neo-blue flex-shrink-0 flex items-center justify-center text-white font-bold text-xs border-2 border-neo-black">📦</div>
-              <div>
-                <strong>Logistique</strong>
-                <p class="text-gray-500 text-sm mt-1">Demande de matériel, stock bas, livraison.</p>
-              </div>
-            </div>
+        <div class="neo-card bg-white p-6 h-full">
+          <h3 class="font-grotesk font-bold text-lg mb-4">Générées en temps réel</h3>
+          <p class="text-sm text-gray-600 mb-4">Les notifications sont calculées automatiquement à partir des données. Pas besoin de les créer manuellement.</p>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-red inline-block border border-neo-black"></span> Interventions en retard</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-red inline-block border border-neo-black"></span> Équipements en panne</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-orange inline-block border border-neo-black"></span> Seuil de maintenance atteint</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-yellow inline-block border border-neo-black"></span> Stock bas</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-neo-blue inline-block border border-neo-black"></span> Factures impayées</div>
           </div>
         </div>
       </div>
@@ -885,68 +1579,106 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 15 — PARAMÈTRES -->
+<!-- SECTION 44 — CATÉGORIES D'ALERTES -->
 <!-- ============================================ -->
-<section class="py-20 px-4 bg-neo-gray">
+<section class="py-20 px-4 bg-neo-red text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-purple mb-4 font-bold">Section 15 — Paramètres</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Configuration.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Gérez votre profil, les notifications, l'apparence, et les paramètres système.
-      </p>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 44 — Catégories</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">4 catégories d'alertes.</h2>
     </div>
-    <div class="animate-on-scroll scale-up">
-      <div class="img-frame max-w-4xl mx-auto">
-        <img src="img/settings.png" alt="Paramètres AEMI" loading="lazy">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="animate-on-scroll pop stagger-1 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <div class="text-2xl mb-2">🚨</div><h3 class="font-bold mb-1">Urgence</h3>
+        <p class="text-xs text-gray-500">Pannes, interventions en retard, urgences non assignées.</p>
       </div>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-2 mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">Profil</div>
-        <p class="text-xs text-gray-500 mt-1">Nom, email, téléphone, avatar</p>
+      <div class="animate-on-scroll pop stagger-2 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <div class="text-2xl mb-2">🔧</div><h3 class="font-bold mb-1">Maintenance</h3>
+        <p class="text-xs text-gray-500">Seuils horaires, maintenances préventives à planifier.</p>
       </div>
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">Notifications</div>
-        <p class="text-xs text-gray-500 mt-1">Configurer les types d'alertes</p>
+      <div class="animate-on-scroll pop stagger-3 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <div class="text-2xl mb-2">📦</div><h3 class="font-bold mb-1">Logistique</h3>
+        <p class="text-xs text-gray-500">Stock critique, pièces en attente, livraisons.</p>
       </div>
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">Apparence</div>
-        <p class="text-xs text-gray-500 mt-1">Thème clair / sombre</p>
-      </div>
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">Système</div>
-        <p class="text-xs text-gray-500 mt-1">Configuration avancée</p>
+      <div class="animate-on-scroll pop stagger-4 neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);">
+        <div class="text-2xl mb-2">💰</div><h3 class="font-bold mb-1">Facturation</h3>
+        <p class="text-xs text-gray-500">Interventions non facturées, factures impayées, litiges.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 16 — BASE DE DONNÉES -->
+<!-- SECTION 45 — PARAMÈTRES -->
+<!-- ============================================ -->
+<section class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-purple mb-4 font-bold">Section 45 — Paramètres</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Configuration.</h2>
+    </div>
+    <div class="animate-on-scroll scale-up">
+      <div class="img-frame max-w-4xl mx-auto"><img src="img/settings.png" alt="Paramètres AEMI" loading="lazy"></div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-2 mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="neo-card-sm bg-white p-4 text-center"><div class="font-bold text-sm">Profil</div><p class="text-xs text-gray-500 mt-1">Nom, email, téléphone, avatar</p></div>
+      <div class="neo-card-sm bg-white p-4 text-center"><div class="font-bold text-sm">Notifications</div><p class="text-xs text-gray-500 mt-1">Types d'alertes activées</p></div>
+      <div class="neo-card-sm bg-white p-4 text-center"><div class="font-bold text-sm">Apparence</div><p class="text-xs text-gray-500 mt-1">Thème clair / sombre</p></div>
+      <div class="neo-card-sm bg-white p-4 text-center"><div class="font-bold text-sm">Système</div><p class="text-xs text-gray-500 mt-1">Configuration avancée</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 46 — ATELIER & LOGISTIQUE -->
+<!-- ============================================ -->
+<section class="py-20 px-4 bg-neo-gray">
+  <div class="max-w-5xl mx-auto">
+    <div class="animate-on-scroll from-bottom">
+      <div class="section-number text-neo-orange mb-4 font-bold">Section 46 — Atelier &amp; Logistique</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">3 contextes métier.</h2>
+      <p class="text-lg text-gray-500 mb-12 max-w-3xl">Un sélecteur en haut du menu permet de basculer entre les 3 contextes.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="animate-on-scroll from-bottom stagger-1">
+        <div class="neo-card bg-neo-blue text-white p-6 h-full">
+          <h3 class="font-bold text-lg mb-2">Maintenance GE</h3>
+          <p class="text-blue-200 text-sm">Le contexte principal. Interventions terrain sur les groupes électrogènes.</p>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-2">
+        <div class="neo-card bg-neo-orange text-white p-6 h-full">
+          <h3 class="font-bold text-lg mb-2">Atelier</h3>
+          <p class="text-orange-100 text-sm">Ordres de travail, diagnostic, pièces détachées, planification atelier. 7 statuts de suivi.</p>
+        </div>
+      </div>
+      <div class="animate-on-scroll from-bottom stagger-3">
+        <div class="neo-card bg-neo-purple text-white p-6 h-full">
+          <h3 class="font-bold text-lg mb-2">Logistique</h3>
+          <p class="text-purple-100 text-sm">Charroi (flotte véhicules), magasin (stock pièces), demandes de matériel et de transport.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 47 — BASE DE DONNÉES -->
 <!-- ============================================ -->
 <section id="donnees" class="py-20 px-4 bg-neo-dark text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-yellow mb-4 font-bold">Section 16 — Base de données</div>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 47 — Base de données</div>
       <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Supabase (PostgreSQL).</h2>
-      <p class="text-lg text-gray-400 mb-12 max-w-3xl">
-        Toutes les données sont stockées dans Supabase, une base PostgreSQL hébergée dans le cloud. Voici le schéma et comment y insérer des données.
-      </p>
+      <p class="text-lg text-gray-400 mb-12 max-w-3xl">Toutes les données sont stockées dans Supabase, une base PostgreSQL dans le cloud.</p>
     </div>
-    <!-- Screenshot SQL Schema -->
     <div class="animate-on-scroll scale-up mb-8">
-      <div class="img-frame">
-        <img src="img/supabase-schema.png" alt="Schéma SQL Supabase" loading="lazy">
-      </div>
-      <p class="text-center text-sm text-gray-400 mt-3 font-mono">SQL Editor — Schéma de la base de données</p>
+      <div class="img-frame"><img src="img/supabase-schema.png" alt="Schéma SQL Supabase" loading="lazy"></div>
+      <p class="text-center text-sm text-gray-400 mt-3 font-mono">SQL Editor — Schéma de la base</p>
     </div>
-    <!-- Screenshot Table Editor -->
     <div class="animate-on-scroll scale-up stagger-2 mb-8">
-      <div class="img-frame">
-        <img src="img/supabase-table.png" alt="Table Editor Supabase" loading="lazy">
-      </div>
-      <p class="text-center text-sm text-gray-400 mt-3 font-mono">Table Editor — Visualiser et modifier les données</p>
+      <div class="img-frame"><img src="img/supabase-table.png" alt="Table Editor Supabase" loading="lazy"></div>
+      <p class="text-center text-sm text-gray-400 mt-3 font-mono">Table Editor — Visualiser et modifier</p>
     </div>
     <div class="animate-on-scroll from-bottom stagger-3">
       <div class="neo-card bg-white text-neo-black p-6" style="box-shadow: 6px 6px 0px 0px #ffd166;">
@@ -955,7 +1687,7 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
           <div class="bg-blue-50 p-3 border-2 border-neo-blue"><strong>profiles</strong> — Utilisateurs et rôles</div>
           <div class="bg-blue-50 p-3 border-2 border-neo-blue"><strong>clients</strong> — Entreprises clientes</div>
           <div class="bg-blue-50 p-3 border-2 border-neo-blue"><strong>contacts</strong> — Contacts par client/site</div>
-          <div class="bg-blue-50 p-3 border-2 border-neo-blue"><strong>sites</strong> — Localisations avec coordonnées GPS</div>
+          <div class="bg-blue-50 p-3 border-2 border-neo-blue"><strong>sites</strong> — Localisations GPS</div>
           <div class="bg-green-50 p-3 border-2 border-neo-green"><strong>assets</strong> — Groupes électrogènes</div>
           <div class="bg-green-50 p-3 border-2 border-neo-green"><strong>interventions</strong> — Ordres de travail</div>
           <div class="bg-orange-50 p-3 border-2 border-neo-orange"><strong>offers</strong> — Devis</div>
@@ -963,7 +1695,7 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
           <div class="bg-purple-50 p-3 border-2 border-neo-purple"><strong>work_orders</strong> — Ordres atelier</div>
           <div class="bg-purple-50 p-3 border-2 border-neo-purple"><strong>inventory_items</strong> — Stock pièces</div>
           <div class="bg-purple-50 p-3 border-2 border-neo-purple"><strong>vehicles</strong> — Flotte véhicules</div>
-          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>notifications</strong> — Alertes système</div>
+          <div class="bg-neo-gray p-3 border-2 border-neo-black"><strong>notifications</strong> — Alertes</div>
         </div>
       </div>
     </div>
@@ -971,40 +1703,27 @@ body { font-family: 'Inter', sans-serif; background: #fefefe; overflow-x: hidden
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 17 — INSÉRER DES DONNÉES -->
+<!-- SECTION 48 — INSÉRER DES DONNÉES -->
 <!-- ============================================ -->
 <section class="py-20 px-4">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-green mb-4 font-bold">Section 17 — Insérer des données</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Comment ajouter des données.</h2>
-      <p class="text-lg text-gray-500 mb-12 max-w-3xl">
-        Deux méthodes pour ajouter des données dans la base Supabase.
-      </p>
+      <div class="section-number text-neo-green mb-4 font-bold">Section 48 — Insérer</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Ajouter des données.</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
       <div class="animate-on-scroll from-left stagger-1">
         <div class="neo-card bg-white p-8 h-full">
           <div class="neo-card-sm bg-neo-green text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">MÉTHODE 1</div>
           <h3 class="font-bold font-grotesk text-lg mb-3">Via l'application</h3>
-          <p class="text-gray-600 text-sm leading-relaxed mb-4">
-            Directement dans AEMI GMAO. Allez dans le module souhaité (Clients, Équipements, Interventions...) et cliquez sur le bouton <strong>« + Nouveau »</strong>. Remplissez le formulaire et enregistrez.
-          </p>
-          <div class="bg-neo-gray p-3 text-xs text-gray-500">
-            C'est la méthode la plus simple. Pas besoin de toucher à la base de données.
-          </div>
+          <p class="text-gray-600 text-sm">Allez dans le module souhaité et cliquez <strong>« + Nouveau »</strong>. Remplissez le formulaire.</p>
         </div>
       </div>
       <div class="animate-on-scroll from-right stagger-2">
         <div class="neo-card bg-white p-8 h-full">
           <div class="neo-card-sm bg-neo-blue text-white px-3 py-1 inline-block font-mono text-xs font-bold mb-4">MÉTHODE 2</div>
           <h3 class="font-bold font-grotesk text-lg mb-3">Via Supabase</h3>
-          <p class="text-gray-600 text-sm leading-relaxed mb-4">
-            Connectez-vous au <strong>dashboard Supabase</strong>. Utilisez le <strong>Table Editor</strong> pour ajouter, modifier ou supprimer des lignes directement. Ou utilisez le <strong>SQL Editor</strong> pour exécuter des requêtes.
-          </p>
-          <div class="bg-neo-gray p-3 text-xs text-gray-500">
-            Pour les imports en masse ou les modifications avancées.
-          </div>
+          <p class="text-gray-600 text-sm">Utilisez le <strong>Table Editor</strong> ou le <strong>SQL Editor</strong> pour ajouter directement.</p>
         </div>
       </div>
     </div>
@@ -1027,33 +1746,35 @@ VALUES (
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 18 — ÉQUIPE DE DÉMONSTRATION -->
+<!-- SECTION 49 — STACK & ÉQUIPE -->
 <!-- ============================================ -->
 <section class="py-20 px-4 bg-neo-blue text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-yellow mb-4 font-bold">Section 18 — L'équipe</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Le personnel de démonstration.</h2>
-      <p class="text-lg text-blue-200 mb-12 max-w-3xl">
-        8 membres d'équipe avec des rôles différents pour tester toutes les fonctionnalités.
-      </p>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 49 — Technologies &amp; Équipe</div>
+      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Comment c'est construit.</h2>
     </div>
-    <div class="animate-on-scroll from-bottom stagger-1">
+    <div class="animate-on-scroll from-bottom stagger-1 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="neo-card bg-white text-neo-black p-5 text-center"><div class="font-mono font-bold text-xl text-neo-blue mb-1">React</div><div class="text-xs text-gray-500">TypeScript</div></div>
+      <div class="neo-card bg-white text-neo-black p-5 text-center"><div class="font-mono font-bold text-xl text-neo-green mb-1">Supabase</div><div class="text-xs text-gray-500">PostgreSQL</div></div>
+      <div class="neo-card bg-white text-neo-black p-5 text-center"><div class="font-mono font-bold text-xl text-neo-purple mb-1">Tailwind</div><div class="text-xs text-gray-500">+ shadcn/ui</div></div>
+      <div class="neo-card bg-white text-neo-black p-5 text-center"><div class="font-mono font-bold text-xl text-neo-orange mb-1">Vite</div><div class="text-xs text-gray-500">+ SWC</div></div>
+    </div>
+    <div class="animate-on-scroll from-bottom stagger-2">
       <div class="neo-card bg-white text-neo-black p-6 overflow-x-auto" style="box-shadow: 6px 6px 0px 0px #ffd166;">
+        <h3 class="font-grotesk font-bold text-lg mb-4">Le personnel de démonstration</h3>
         <table class="w-full text-sm">
-          <thead>
-            <tr class="bg-neo-gray">
-              <th class="p-3 text-left border-b-2 border-neo-black">Nom</th>
-              <th class="p-3 text-left border-b-2 border-neo-black">Rôle</th>
-              <th class="p-3 text-left border-b-2 border-neo-black">Compétences</th>
-            </tr>
-          </thead>
+          <thead><tr class="bg-neo-gray">
+            <th class="p-3 text-left border-b-2 border-neo-black">Nom</th>
+            <th class="p-3 text-left border-b-2 border-neo-black">Rôle</th>
+            <th class="p-3 text-left border-b-2 border-neo-black">Compétences</th>
+          </tr></thead>
           <tbody>
             <tr class="border-b border-gray-200"><td class="p-3 font-bold">Clément Kabongo</td><td class="p-3"><span class="bg-neo-blue text-white px-2 py-0.5 text-xs font-bold">Admin</span></td><td class="p-3 text-gray-500">—</td></tr>
-            <tr class="border-b border-gray-200"><td class="p-3 font-bold">Dieudonné Mutombo</td><td class="p-3"><span class="bg-neo-purple text-white px-2 py-0.5 text-xs font-bold">Superviseur</span></td><td class="p-3 text-gray-500">GE Caterpillar, GE Perkins, Diagnostic</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-bold">Dieudonné Mutombo</td><td class="p-3"><span class="bg-neo-purple text-white px-2 py-0.5 text-xs font-bold">Superviseur</span></td><td class="p-3 text-gray-500">GE Caterpillar, Perkins, Diagnostic</td></tr>
             <tr class="border-b border-gray-200"><td class="p-3 font-bold">Patrick Ilunga</td><td class="p-3"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Technicien</span></td><td class="p-3 text-gray-500">GE Caterpillar, Électricité BT</td></tr>
-            <tr class="border-b border-gray-200"><td class="p-3 font-bold">Jean-Pierre Tshombe</td><td class="p-3"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Technicien</span></td><td class="p-3 text-gray-500">GE Perkins, GE Cummins, Mécanique</td></tr>
-            <tr class="border-b border-gray-200"><td class="p-3 font-bold">François Lukusa</td><td class="p-3"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Technicien</span></td><td class="p-3 text-gray-500">GE Volvo, GE MTU, Installation</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-bold">Jean-Pierre Tshombe</td><td class="p-3"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Technicien</span></td><td class="p-3 text-gray-500">GE Perkins, Cummins, Mécanique</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-bold">François Lukusa</td><td class="p-3"><span class="bg-neo-green text-white px-2 py-0.5 text-xs font-bold">Technicien</span></td><td class="p-3 text-gray-500">GE Volvo, MTU, Installation</td></tr>
             <tr class="border-b border-gray-200"><td class="p-3 font-bold">Michel Kalala</td><td class="p-3"><span class="bg-neo-orange text-white px-2 py-0.5 text-xs font-bold">Chauffeur</span></td><td class="p-3 text-gray-500">—</td></tr>
             <tr class="border-b border-gray-200"><td class="p-3 font-bold">André Mbala</td><td class="p-3"><span class="bg-neo-orange text-white px-2 py-0.5 text-xs font-bold">Chauffeur</span></td><td class="p-3 text-gray-500">—</td></tr>
             <tr><td class="p-3 font-bold">Marie Nsimba</td><td class="p-3"><span class="bg-neo-yellow text-neo-black px-2 py-0.5 text-xs font-bold">Agent Admin</span></td><td class="p-3 text-gray-500">—</td></tr>
@@ -1065,94 +1786,30 @@ VALUES (
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 19 — STACK TECHNIQUE -->
-<!-- ============================================ -->
-<section class="py-20 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-orange mb-4 font-bold">Section 19 — Technologies</div>
-      <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Comment c'est construit.</h2>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-1 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="neo-card bg-white p-6 text-center">
-        <div class="font-mono font-bold text-2xl text-neo-blue mb-2">React</div>
-        <div class="text-sm text-gray-500">Framework front-end</div>
-        <div class="text-xs text-gray-400 mt-1">TypeScript</div>
-      </div>
-      <div class="neo-card bg-white p-6 text-center">
-        <div class="font-mono font-bold text-2xl text-neo-green mb-2">Supabase</div>
-        <div class="text-sm text-gray-500">Base de données</div>
-        <div class="text-xs text-gray-400 mt-1">PostgreSQL</div>
-      </div>
-      <div class="neo-card bg-white p-6 text-center">
-        <div class="font-mono font-bold text-2xl text-neo-purple mb-2">Tailwind</div>
-        <div class="text-sm text-gray-500">Styling CSS</div>
-        <div class="text-xs text-gray-400 mt-1">+ shadcn/ui</div>
-      </div>
-      <div class="neo-card bg-white p-6 text-center">
-        <div class="font-mono font-bold text-2xl text-neo-orange mb-2">Vite</div>
-        <div class="text-sm text-gray-500">Build tool</div>
-        <div class="text-xs text-gray-400 mt-1">+ SWC</div>
-      </div>
-    </div>
-    <div class="animate-on-scroll from-bottom stagger-2 mt-6 grid sm:grid-cols-3 gap-4">
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">Leaflet</div>
-        <p class="text-xs text-gray-500 mt-1">Cartes interactives</p>
-      </div>
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">Recharts</div>
-        <p class="text-xs text-gray-500 mt-1">Graphiques et statistiques</p>
-      </div>
-      <div class="neo-card-sm bg-white p-4 text-center">
-        <div class="font-bold text-sm">jsPDF</div>
-        <p class="text-xs text-gray-500 mt-1">Export PDF (factures, rapports)</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================ -->
-<!-- SECTION 20 — VOTRE RETOUR -->
+<!-- SECTION 50 — VOTRE RETOUR -->
 <!-- ============================================ -->
 <section class="py-20 px-4 bg-neo-black text-white">
   <div class="max-w-5xl mx-auto">
     <div class="animate-on-scroll from-bottom">
-      <div class="section-number text-neo-yellow mb-4 font-bold">Section 20 — Votre retour</div>
+      <div class="section-number text-neo-yellow mb-4 font-bold">Section 50 — Votre retour</div>
       <h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-8">À vous de jouer, Clément.</h2>
     </div>
     <div class="animate-on-scroll bounce">
       <div class="neo-card bg-white text-neo-black p-8 sm:p-12 text-center" style="box-shadow:10px 10px 0 #ffd166;">
         <p class="text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-          Cette première version est faite pour être testée. Explorez chaque module, essayez de créer des interventions, de modifier des équipements, de basculer entre le compte admin et le compte technicien. Notez tout ce qui vous semble bien, et tout ce qui doit être amélioré.
+          Explorez chaque module. Créez une intervention, assignez-la à Patrick (tech1), puis connectez-vous en tant que technicien pour suivre tout le parcours. Notez ce qui fonctionne et ce qui doit être amélioré.
         </p>
         <div class="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto mb-10">
-          <div class="text-center">
-            <div class="w-12 h-12 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold border-2 border-neo-black mb-3">1</div>
-            <div class="font-bold text-sm">Vous testez</div>
-            <div class="text-xs text-gray-400 mt-1">Tous les modules, les deux comptes.</div>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold border-2 border-neo-black mb-3">2</div>
-            <div class="font-bold text-sm">Vous notez</div>
-            <div class="text-xs text-gray-400 mt-1">Ce qui va, ce qui ne va pas.</div>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold border-2 border-neo-black mb-3">3</div>
-            <div class="font-bold text-sm">On améliore</div>
-            <div class="text-xs text-gray-400 mt-1">Votre retour guide la suite.</div>
-          </div>
+          <div class="text-center"><div class="w-12 h-12 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold border-2 border-neo-black mb-3">1</div><div class="font-bold text-sm">Vous testez</div><div class="text-xs text-gray-400 mt-1">Tous les modules, les deux comptes.</div></div>
+          <div class="text-center"><div class="w-12 h-12 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold border-2 border-neo-black mb-3">2</div><div class="font-bold text-sm">Vous notez</div><div class="text-xs text-gray-400 mt-1">Ce qui va, ce qui ne va pas.</div></div>
+          <div class="text-center"><div class="w-12 h-12 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold border-2 border-neo-black mb-3">3</div><div class="font-bold text-sm">On améliore</div><div class="text-xs text-gray-400 mt-1">Votre retour guide la suite.</div></div>
         </div>
-        <a href="https://aemi-gmao.vercel.app" target="_blank" class="neo-btn bg-neo-blue text-white px-8 py-4 inline-block font-bold text-lg font-grotesk">
-          Ouvrir l'application &rarr;
-        </a>
+        <a href="https://aemi-gmao.vercel.app" target="_blank" class="neo-btn bg-neo-blue text-white px-8 py-4 inline-block font-bold text-lg font-grotesk">Ouvrir l'application &rarr;</a>
       </div>
     </div>
     <div class="animate-on-scroll from-bottom stagger-3 mt-10 text-center">
       <div class="neo-card bg-white/10 p-6 inline-block backdrop-blur-sm mb-6">
-        <p class="font-mono text-sm text-neo-yellow">
-          admin@aemi.cd &bull; aemi2024 &bull; https://aemi-gmao.vercel.app
-        </p>
+        <p class="font-mono text-sm text-neo-yellow">admin@aemi.cd &bull; aemi2024 &bull; https://aemi-gmao.vercel.app</p>
       </div>
       <p class="text-xl font-grotesk font-bold text-neo-yellow">À très vite Clément.</p>
       <p class="text-sm text-gray-500 mt-4">ExplorIA — Baptiste Fort</p>
@@ -1164,9 +1821,7 @@ VALUES (
 <footer class="py-8 px-4 bg-neo-white" style="border-top: 3px solid #1a1a1a;">
   <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-neo-blue border-2 border-neo-black flex items-center justify-center">
-        <span class="text-white font-bold font-mono text-xs">AE</span>
-      </div>
+      <div class="w-8 h-8 bg-neo-blue border-2 border-neo-black flex items-center justify-center"><span class="text-white font-bold font-mono text-xs">AE</span></div>
       <span class="font-grotesk font-bold text-sm">AEMI GMAO</span>
     </div>
     <div class="text-xs text-gray-400 font-mono">ExplorIA &times; Forrest Groupe — Version 1.0 — Février 2026</div>
